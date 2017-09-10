@@ -28,15 +28,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     
     //Text Field moves upword when user beings editing.
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 1){
-            let logoframe = CGRect(x: self.imageLogo.frame.minX, y: -self.imageLogo.frame.height , width: self.imageLogo.frame.width, height: self.imageLogo.frame.height)
-            self.imageLogo.frame = logoframe
-            let fieldframe = CGRect(x: textField.frame.minX, y: 2*UIApplication.shared.statusBarFrame.height, width: textField.frame.width, height: textField.frame.height)
-            self.textField.frame = fieldframe
-            self.view.layoutIfNeeded()
-            
-        }
+    func textFieldDidBeginEditing(_ sender: UITextField) {
+        startEditing()
 //        UIView.animate(withDuration: 1, delay: 1, animations: {
 //            let resultFrame = CGRect(x: self.resultMenu.frame.minX, y: 121, width: self.resultMenu.frame.width, height: 570)
 //            self.resultMenu.isHidden = false
@@ -45,6 +38,17 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
         //TEST - GITHUB
         
+    }
+    
+    func startEditing(){
+        UIView.animate(withDuration: 1){
+            let logoframe = CGRect(x: self.imageLogo.frame.minX, y: -self.imageLogo.frame.height , width: self.imageLogo.frame.width, height: self.imageLogo.frame.height)
+            self.imageLogo.frame = logoframe
+            let fieldframe = CGRect(x: self.textField.frame.minX, y: 2*UIApplication.shared.statusBarFrame.height, width: self.textField.frame.width, height: self.textField.frame.height)
+            self.textField.frame = fieldframe
+            self.view.layoutIfNeeded()
+            
+        }
     }
     
     
