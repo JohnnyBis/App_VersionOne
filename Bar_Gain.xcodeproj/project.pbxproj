@@ -13,6 +13,8 @@
 		D7953C601F62DE560051D526 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7953C5E1F62DE560051D526 /* Main.storyboard */; };
 		D7953C621F62DE560051D526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7953C611F62DE560051D526 /* Assets.xcassets */; };
 		D7953C651F62DE560051D526 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7953C631F62DE560051D526 /* LaunchScreen.storyboard */; };
+		D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */; };
+		D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE91F66E16600E117EC /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D7953C641F62DE560051D526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7953C661F62DE560051D526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7953C6C1F636A260051D526 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableView.swift; sourceTree = "<group>"; };
+		D7AE4CE91F66E16600E117EC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Gain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +85,9 @@
 			children = (
 				D7953C5A1F62DE560051D526 /* AppDelegate.swift */,
 				D7953C5C1F62DE560051D526 /* ViewController.swift */,
+				D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */,
 				D7953C5E1F62DE560051D526 /* Main.storyboard */,
+				D7AE4CE91F66E16600E117EC /* Profile.swift */,
 				D7953C611F62DE560051D526 /* Assets.xcassets */,
 				D7953C631F62DE560051D526 /* LaunchScreen.storyboard */,
 				D7953C6C1F636A260051D526 /* GoogleService-Info.plist */,
@@ -201,13 +207,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,6 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */,
+				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
 			);

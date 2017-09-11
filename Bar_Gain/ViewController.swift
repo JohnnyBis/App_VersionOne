@@ -7,7 +7,9 @@
 //
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate{
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+    
+    
     //Variables:
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultMenu: UITableView!
@@ -18,12 +20,22 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
         //Text Field set as Delegate
         textField.delegate = self
+        resultMenu.delegate = self
+        
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
     
