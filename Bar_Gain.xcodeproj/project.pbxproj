@@ -16,6 +16,7 @@
 		D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */; };
 		D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE91F66E16600E117EC /* Profile.swift */; };
 		D7AE4CEC1F67685800E117EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */; };
+		D7AE4CEE1F681BD700E117EC /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CED1F681BD700E117EC /* MessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableView.swift; sourceTree = "<group>"; };
 		D7AE4CE91F66E16600E117EC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7AE4CED1F681BD700E117EC /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Gain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 			children = (
 				D7953C5A1F62DE560051D526 /* AppDelegate.swift */,
 				D7953C5C1F62DE560051D526 /* ViewController.swift */,
+				D7AE4CED1F681BD700E117EC /* MessageView.swift */,
 				D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */,
 				D7953C5E1F62DE560051D526 /* Main.storyboard */,
 				D7AE4CE91F66E16600E117EC /* Profile.swift */,
@@ -233,6 +236,7 @@
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
+				D7AE4CEE1F681BD700E117EC /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,9 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
         //Text Field set as Delegate
         textField.delegate = self
+    
        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
