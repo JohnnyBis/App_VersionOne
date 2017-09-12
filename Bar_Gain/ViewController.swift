@@ -6,8 +6,9 @@
 //  Copyright © 2017 Gianmaria Biselli. All rights reserved.
 //
 import UIKit
+import Firebase
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITextFieldDelegate{
     
     
     //Variables:
@@ -20,7 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         //Text Field set as Delegate
         textField.delegate = self
-        resultMenu.delegate = self
+       
         
         
     }
@@ -28,14 +29,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
     }
     
     

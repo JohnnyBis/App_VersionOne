@@ -10,8 +10,14 @@ import UIKit
 
 class Profile: UIViewController {
 
+    @IBOutlet weak var userProfileImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        userProfileImage.layer.cornerRadius = 25
+        userProfileImage.clipsToBounds = true
+        
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +27,7 @@ class Profile: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+   
     /*
     // MARK: - Navigation
 
