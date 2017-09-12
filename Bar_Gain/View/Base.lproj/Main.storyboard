@@ -90,7 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="giw-aE-M1D"/>
                     </view>
                     <connections>
-                        <outlet property="heightConstraint" destination="Ixd-80-gMO" id="YKI-wI-iZ6"/>
+                        <outlet property="heightConstraint" destination="ajb-GX-wCu" id="gbL-fZ-7K9"/>
                         <outlet property="messageTableView" destination="Dia-G9-aPe" id="mME-pk-Bic"/>
                         <outlet property="messageTextfield" destination="hCf-lJ-I0E" id="Ddx-gz-T26"/>
                         <outlet property="receiverProfileImage" destination="Ztl-Sl-bYX" id="ECJ-v2-7Bl"/>

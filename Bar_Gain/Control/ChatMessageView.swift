@@ -11,8 +11,6 @@ import Firebase
 
 class ChatMessageView: UIViewController, UITextFieldDelegate{
    
-    
-    var messageArray : [Message] = [Message]()
 
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
