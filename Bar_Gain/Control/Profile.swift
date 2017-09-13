@@ -41,6 +41,7 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
         
         //Adding tableViews scroll view to profileBodyView.
         scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
         self.profileBodyView.addSubview(scrollView)
         
         
