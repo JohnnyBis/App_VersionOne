@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITableViewDataSource {
     
@@ -120,8 +121,24 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.text = "Test"
+        cell.selectionStyle = .none
+        
+        let cellBackgroundView = UIView()
+        //12 66 147
+        cellBackgroundView.backgroundColor = UIColor(red: 12, green: 66, blue: 147, alpha: 1)
+        cell.selectedBackgroundView = cellBackgroundView
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        if tableView.isEqual(tableViewList?[0]){
+            cell.textLabel?.text = "Test table 0"
+        }else{
+            cell.textLabel?.text = "Test table 1"
+        }
+        
+        
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     /*
     // MARK: - Navigation
