@@ -34,6 +34,9 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         
         tableViewList?.append(TableView())
         tableViewList?.append(TableView())
+        tableViewList?.append(TableView())
+        tableViewList?.append(TableView())
+        
         
         //Setup each tableView
         setUpTableViews()
@@ -70,6 +73,8 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
             tableView.backgroundColor = UIColor.clear
             tableView.estimatedRowHeight = 400
             tableView.rowHeight = UITableViewAutomaticDimension
+            //With or without
+            tableView.separatorStyle = .singleLine
             tableView.reloadData()
         }
     }
@@ -129,11 +134,8 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         cell.selectedBackgroundView = cellBackgroundView
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        if tableView.isEqual(tableViewList?[0]){
-            cell.textLabel?.text = "Test table 0"
-        }else{
-            cell.textLabel?.text = "Test table 1"
-        }
+        cell.textLabel?.text = "Test table:"+(String(describing: tableViewList?.index(of: tableView) as! Int!))
+        cell.textLabel?.text?.append(", Row: " + String(describing:indexPath.row))
         
         
         return cell
