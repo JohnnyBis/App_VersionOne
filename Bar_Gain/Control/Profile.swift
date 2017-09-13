@@ -8,72 +8,97 @@
 
 import UIKit
 
-class Profile: UIViewController,UIScrollViewDelegate {
+class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
 
     @IBOutlet weak var userProfileImage: UIImageView!
     
-    let imagelist = ["image1.jpg", "image1.jpg"]
-    var scrollView = UIScrollView()
+    @IBOutlet var profilePageControl: UIPageControl!
+    @IBOutlet var profileBodyView: UIStackView!
     
-    var pageControl : UIPageControl = UIPageControl(frame:CGRect(x: 50, y: 300, width: 200, height: 50))
+    @IBOutlet var scrollView: UIScrollView!
+    var tableViewList:[UITableView]? = []
     
     var yPosition:CGFloat = 0
     var scrollViewContentSize:CGFloat=0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Configure profile image, name and details.
         userProfileImage.layer.cornerRadius = 25
         userProfileImage.clipsToBounds = true
+        self.profileBodyView.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
+        tableViewList?.append(TableView())
+        tableViewList?.append(TableView())
         
+        //Setup each tableView
+        setUpTableViews()
+        
+        //Config of visualizers of page controll.
         configurePageControl()
         
+        
+        //Adding tableViews scroll view to profileBodyView.
         scrollView.delegate = self
-        self.view.addSubview(scrollView)
-        for  i in stride(from: 0, to: imagelist.count, by: 1) {
+        self.profileBodyView.addSubview(scrollView)
+        
+        
+        //Setup tables size for control.
+        setUpForTables()
+        // Do any additional setup after loading the view.
+    }
+    func configurePageControl() {
+        // The total number of pages that are available is based on how many available colors we have.
+        self.profilePageControl.numberOfPages = (tableViewList?.count)!
+        self.profilePageControl.currentPage = 0
+        self.profilePageControl.tintColor = UIColor.red
+        self.profilePageControl.pageIndicatorTintColor = UIColor.black
+        self.profilePageControl.currentPageIndicatorTintColor = UIColor.green
+        
+        
+        
+    }
+    func setUpTableViews(){
+        for table in tableViewList!{
+            table.backgroundColor = UIColor.clear
+        }
+    }
+    func setUpForTables(){
+        for  i in stride(from: 0, to: tableViewList!.count, by: 1) {
+            
+            //Sets the table size to fit scroll view.
             var frame = CGRect.zero
             frame.origin.x = self.scrollView.frame.size.width * CGFloat(i)
             frame.origin.y = 0
             frame.size = self.scrollView.frame.size
             self.scrollView.isPagingEnabled = true
             
-            let myImage:UIImage = UIImage(named: imagelist[i])!
-            let myImageView:UIImageView = UIImageView()
-            myImageView.image = myImage
-            myImageView.contentMode = UIViewContentMode.scaleAspectFit
-            myImageView.frame = frame
+            tableViewList![i].frame = frame
             
-            scrollView.addSubview(myImageView)
+            scrollView.addSubview(tableViewList![i])
         }
-        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width * CGFloat(imagelist.count), height: self.scrollView.frame.size.height)
-        pageControl.addTarget(self, action: Selector(("changePage:")), for: UIControlEvents.valueChanged)
-        // Do any additional setup after loading the view.
-    }
-    func configurePageControl() {
-        // The total number of pages that are available is based on how many available colors we have.
-        self.pageControl.numberOfPages = imagelist.count
-        self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.red
-        self.pageControl.pageIndicatorTintColor = UIColor.black
-        self.pageControl.currentPageIndicatorTintColor = UIColor.green
-        self.view.addSubview(pageControl)
+        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width * CGFloat((tableViewList?.count)!), height: self.scrollView.frame.size.height)
+        self.profilePageControl.addTarget(self, action: Selector(("changePage:")), for: UIControlEvents.valueChanged)
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
+    //On change page.
     func changePage(sender: AnyObject) -> () {
-        let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
+        let x = CGFloat(self.profilePageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-        pageControl.currentPage = Int(pageNumber)
+        profilePageControl.currentPage = Int(pageNumber)
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     /*
     // MARK: - Navigation
