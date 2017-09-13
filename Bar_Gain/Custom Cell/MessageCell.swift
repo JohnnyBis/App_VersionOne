@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomMessageCell: UITableViewCell {
+class MessageCell: UITableViewCell {
     
     @IBOutlet weak var messageText: UILabel!
     

@@ -10,6 +10,6 @@ import Foundation
 
 struct K {
     struct cells {
-        static let resultCell = ""
+        static let messageCell = "MessageCell"
     }
 }

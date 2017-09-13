@@ -10,7 +10,7 @@
 		6E341A761F695D8400AB4C4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E341A751F695D8400AB4C4B /* Constants.swift */; };
 		71A9F8ABAE830906DA8D4ACB /* Pods_Bar_Gain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */; };
 		D751A4971F68387400D8D9CF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A4961F68387400D8D9CF /* Message.swift */; };
-		D751A49F1F68451700D8D9CF /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A49D1F68451700D8D9CF /* CustomMessageCell.swift */; };
+		D751A49F1F68451700D8D9CF /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A49D1F68451700D8D9CF /* MessageCell.swift */; };
 		D751A4A01F68451700D8D9CF /* CustomMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D751A49E1F68451700D8D9CF /* CustomMessageCell.xib */; };
 		D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7953C5A1F62DE560051D526 /* AppDelegate.swift */; };
 		D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7953C5C1F62DE560051D526 /* ViewController.swift */; };
@@ -28,7 +28,7 @@
 		90F5864BF1A44800449DBABC /* Pods-Bar_Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.release.xcconfig"; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
 		D751A4961F68387400D8D9CF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		D751A49D1F68451700D8D9CF /* CustomMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
+		D751A49D1F68451700D8D9CF /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D751A49E1F68451700D8D9CF /* CustomMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMessageCell.xib; sourceTree = "<group>"; };
 		D7953C571F62DE560051D526 /* Bar_Gain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bar_Gain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7953C5A1F62DE560051D526 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		D751A49C1F68447700D8D9CF /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D751A49D1F68451700D8D9CF /* CustomMessageCell.swift */,
+				D751A49D1F68451700D8D9CF /* MessageCell.swift */,
 				D751A49E1F68451700D8D9CF /* CustomMessageCell.xib */,
 			);
 			path = "Custom Cell";
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D751A49F1F68451700D8D9CF /* CustomMessageCell.swift in Sources */,
+				D751A49F1F68451700D8D9CF /* MessageCell.swift in Sources */,
 				D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */,
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,

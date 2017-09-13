@@ -69,7 +69,7 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cells.messageCell, for: indexPath) as! MessageCell
         
         cell.messageText.text = messageArray[indexPath.row].messageBody
         return cell
