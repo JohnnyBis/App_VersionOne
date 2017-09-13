@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 
-class ChatMessageView: UIViewController, UITextFieldDelegate{
-   
+class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+    
+    
+    //Instance Variable - messageArray for Message class
+    var messageArray : [Message] = [Message]()
+
 
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
@@ -20,7 +24,16 @@ class ChatMessageView: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Delegate for TextView
         messageTextfield.delegate = self
+        
+        //Delagte for TableView
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+        
+        configureTableView()
+        
+        
         
 
         // Do any additional setup after loading the view.
@@ -53,6 +66,23 @@ class ChatMessageView: UIViewController, UITextFieldDelegate{
             self.view.layoutIfNeeded()
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        
+        cell.messageText.text = messageArray[indexPath.row].messageBody
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messageArray.count
+        
+    }
+    
+    func configureTableView() {
+        messageTableView.rowHeight = UITableViewAutomaticDimension
+        messageTableView.estimatedRowHeight = 120.0
     }
 
 }
