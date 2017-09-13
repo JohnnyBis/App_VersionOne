@@ -8,7 +8,9 @@
 
 import UIKit
 
-class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
+class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITableViewDataSource {
+    
+    
 
     @IBOutlet weak var userProfileImage: UIImageView!
     
@@ -61,8 +63,13 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
         
     }
     func setUpTableViews(){
-        for table in tableViewList!{
-            table.backgroundColor = UIColor.clear
+        for tableView in tableViewList!{
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.backgroundColor = UIColor.clear
+            tableView.estimatedRowHeight = 400
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.reloadData()
         }
     }
     func setUpForTables(){
@@ -96,10 +103,25 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
         profilePageControl.currentPage = Int(pageNumber)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.text = "Test"
+        return cell
     }
     /*
     // MARK: - Navigation
@@ -110,5 +132,4 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
