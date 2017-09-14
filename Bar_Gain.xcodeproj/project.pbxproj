@@ -451,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3B9AKFWC8R;
+				DEVELOPMENT_TEAM = 4VU2ZJ2HD8;
 				INFOPLIST_FILE = Bar_Gain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GianmariaBiselli.Bar-Gain";
@@ -467,7 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3B9AKFWC8R;
+				DEVELOPMENT_TEAM = 4VU2ZJ2HD8;
 				INFOPLIST_FILE = Bar_Gain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GianmariaBiselli.Bar-Gain";
