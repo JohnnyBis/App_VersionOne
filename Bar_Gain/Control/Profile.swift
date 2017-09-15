@@ -88,6 +88,7 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         }
     }
     func setUpForTables(){
+        tableTabBar.selectedItem = tableTabBar.items?[self.profilePageControl.currentPage]
         for  i in stride(from: 0, to: tableViewList!.count, by: 1) {
             
             //Sets the table size to fit scroll view.
@@ -110,6 +111,7 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
     func changePage(sender: AnyObject) -> () {
         let x = CGFloat(self.profilePageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
+        
     }
     func changeToPage(page:Int){
         self.profilePageControl.currentPage = page
@@ -121,6 +123,7 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         profilePageControl.currentPage = Int(pageNumber)
+        tableTabBar.selectedItem = tableTabBar.items?[self.profilePageControl.currentPage]
     }
     
     override func didReceiveMemoryWarning() {
