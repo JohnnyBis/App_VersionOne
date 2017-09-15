@@ -9,10 +9,11 @@
 import UIKit
 import QuartzCore
 
-class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITableViewDataSource {
+class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITableViewDataSource,UITabBarDelegate{
     
     
-
+    @IBOutlet weak var tableTabBar: MainTabBar!
+    
     @IBOutlet weak var userProfileImage: UIImageView!
     
     @IBOutlet var profilePageControl: UIPageControl!
@@ -26,14 +27,16 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableTabBar.delegate = self
+        
+        self.tableTabBar.barTintColor = .clear
+
         
         //Configure profile image, name and details.
         userProfileImage.layer.cornerRadius = 25
         userProfileImage.clipsToBounds = true
         self.profileBodyView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableViewList?.append(TableView())
-        tableViewList?.append(TableView())
         tableViewList?.append(TableView())
         tableViewList?.append(TableView())
         
@@ -102,6 +105,11 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         let x = CGFloat(self.profilePageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
     }
+    func changeToPage(page:Int){
+        self.profilePageControl.currentPage = page
+        let x = CGFloat(self.profilePageControl.currentPage) * scrollView.frame.size.width
+        scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
@@ -142,13 +150,14 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //TabBatDelegate functions:
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if(self.tableTabBar.items![0] == item){
+            changeToPage(page: 0)
+        }else{
+            changeToPage(page: 1)
+        }
     }
-    */
+  
 }

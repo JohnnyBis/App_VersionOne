@@ -23,6 +23,7 @@
 		D7AE4CEC1F67685800E117EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */; };
 		D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */; };
 		D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EFC2AA1F6B8F43000E183A /* LoginView.swift */; };
+		D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
 		D7EFC2AA1F6B8F43000E183A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Gain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				D7EFC2AA1F6B8F43000E183A /* LoginView.swift */,
 				D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */,
 				D7AE4CE91F66E16600E117EC /* Profile.swift */,
+				D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */,
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
+				D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */,
 				6EE5CA3B1F698330008FB6AF /* TableView.swift in Sources */,
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
