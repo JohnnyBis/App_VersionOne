@@ -22,6 +22,7 @@
 		D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE91F66E16600E117EC /* Profile.swift */; };
 		D7AE4CEC1F67685800E117EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */; };
 		D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */; };
+		D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EFC2AA1F6B8F43000E183A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D7AE4CE91F66E16600E117EC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
+		D7EFC2AA1F6B8F43000E183A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Gain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				D7953C5A1F62DE560051D526 /* AppDelegate.swift */,
 				D7953C5C1F62DE560051D526 /* ViewController.swift */,
 				D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */,
+				D7EFC2AA1F6B8F43000E183A /* LoginView.swift */,
 				D7AE4CE51F66DC1500E117EC /* ResultTableView.swift */,
 				D7AE4CE91F66E16600E117EC /* Profile.swift */,
 			);
@@ -312,6 +315,7 @@
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
 				D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */,
+				D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */,
 				6E341A761F695D8400AB4C4B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4VU2ZJ2HD8;
+				DEVELOPMENT_TEAM = 3B9AKFWC8R;
 				INFOPLIST_FILE = Bar_Gain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GianmariaBiselli.Bar-Gain";
@@ -467,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4VU2ZJ2HD8;
+				DEVELOPMENT_TEAM = 3B9AKFWC8R;
 				INFOPLIST_FILE = Bar_Gain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.GianmariaBiselli.Bar-Gain";

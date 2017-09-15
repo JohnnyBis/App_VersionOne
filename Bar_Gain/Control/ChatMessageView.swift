@@ -14,8 +14,9 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
     
     //Instance Variable - messageArray for Message class
     var messageArray : [Message] = [Message]()
-
-
+    
+    
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
@@ -31,21 +32,30 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
         messageTableView.delegate = self
         messageTableView.dataSource = self
         
+        //Tap Gesture Configuration
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+        messageTableView.addGestureRecognizer(tapGesture)
+        
+        //Call configure tableview function
         configureTableView()
         
         
+        image.layer.borderWidth = 1
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.cornerRadius = image.frame.height/2
+        image.clipsToBounds = true
         
-
-        // Do any additional setup after loading the view.
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
     }
     
-
+    
     
     //MARK: - textFieldDidBeginEditing func
     
@@ -68,8 +78,9 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
         
     }
     
+    //MARK: - TableView configuration set of functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cells.messageCell, for: indexPath) as! MessageCell
+        let cell = messageTableView.dequeueReusableCell(withIdentifier: K.cells.messageCell, for: indexPath) as! MessageCell
         
         cell.messageText.text = messageArray[indexPath.row].messageBody
         return cell
@@ -83,6 +94,13 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
     func configureTableView() {
         messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.estimatedRowHeight = 120.0
+        
     }
+    
+    //MARK: - tableViewTapped func configured
+    @objc func tableViewTapped(){
+        messageTextfield.endEditing(true)
+    }
+    
 
 }
