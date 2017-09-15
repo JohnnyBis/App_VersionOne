@@ -45,6 +45,8 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
+
         
         
     }

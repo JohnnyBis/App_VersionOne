@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginView: UIViewController {
     @IBOutlet weak var emailField: UITextField!
@@ -20,6 +21,20 @@ class LoginView: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                print("Succesfully signed in")
+            }
+        })
+        
+        performSegue(withIdentifier: "goToHomefromLogin", sender: self)
+        
     }
     
 

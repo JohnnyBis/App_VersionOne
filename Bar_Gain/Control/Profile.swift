@@ -47,7 +47,13 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         //Config of visualizers of page controll.
         configurePageControl()
         
-        
+        //Circular image set up
+        //userProfileImage.layer.borderWidth = 1
+       // userProfileImage.layer.masksToBounds = false
+        userProfileImage.layer.borderColor = UIColor.black.cgColor
+        userProfileImage.layer.cornerRadius = userProfileImage.frame.height/2
+        userProfileImage.clipsToBounds = true
+        userProfileImage.contentMode = .scaleAspectFill
         //Adding tableViews scroll view to profileBodyView.
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false

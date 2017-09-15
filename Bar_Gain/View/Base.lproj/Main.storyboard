@@ -105,7 +105,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdd-YO-Akr">
-                                <rect key="frame" x="24" y="449" width="327" height="146"/>
+                                <rect key="frame" x="24" y="470" width="327" height="146"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -257,7 +257,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="sl5-Kl-Se3"/>
+                                    <action selector="signInButtonPressed:" destination="Dgc-v7-Ywf" eventType="touchUpInside" id="pQL-qL-rh5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-sX-SBQ">
@@ -288,6 +288,7 @@
                     <connections>
                         <outlet property="emailField" destination="RNU-ZH-vE2" id="IJq-ze-2fC"/>
                         <outlet property="passwordField" destination="PKP-sg-UU4" id="wHQ-hv-9m8"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToHomefromLogin" id="BKy-MM-kE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAD-UX-sQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,16 +322,16 @@
                                 <rect key="frame" x="0.0" y="627" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPO-0z-U63">
-                                        <rect key="frame" x="15" y="2" width="46" height="30"/>
+                                        <rect key="frame" x="10" y="2" width="57" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHG-uS-8YN">
-                                        <rect key="frame" x="103" y="2" width="46" height="30"/>
+                                        <rect key="frame" x="95" y="2" width="62" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Add Item">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -521,6 +522,6 @@
         <image name="shutterstock_81301759" width="1000" height="778"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sl5-Kl-Se3"/>
+        <segue reference="BKy-MM-kE9"/>
     </inferredMetricsTieBreakers>
 </document>
