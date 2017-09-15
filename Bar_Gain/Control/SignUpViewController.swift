@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     //Variables:
@@ -16,6 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var zipCodeField: UITextField!
     @IBOutlet weak var stateField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,20 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        //Add user on firebase database
+        FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                print("Successful registration")
+                self.performSegue(withIdentifier: "goToHome", sender: self)
 
+            }
+        })
+        
+    }
+    
 
 
 }
