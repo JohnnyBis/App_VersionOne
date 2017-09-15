@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignUpViewController.swift
 //  Bar_Gain
 //
 //  Created by Gianmaria Biselli on 9/15/17.
@@ -8,10 +8,15 @@
 
 import UIKit
 
-class LoginView: UIViewController {
+class SignUpViewController: UIViewController {
+    //Variables:
+    @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var zipCodeField: UITextField!
+    @IBOutlet weak var stateField: UITextField!
+    @IBOutlet weak var phoneNumberField: UITextField!
     
-    @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +27,7 @@ class LoginView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
 
 
 }
