@@ -30,10 +30,11 @@ class LoginView: UIViewController {
                 print(error!)
             }else{
                 print("Succesfully signed in")
+                self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
             }
         })
         
-        performSegue(withIdentifier: "goToHomefromLogin", sender: self)
+        
         
     }
     
