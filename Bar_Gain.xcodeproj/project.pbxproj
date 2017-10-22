@@ -10,6 +10,8 @@
 		6E341A761F695D8400AB4C4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E341A751F695D8400AB4C4B /* Constants.swift */; };
 		6EE5CA3B1F698330008FB6AF /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE5CA3A1F698330008FB6AF /* TableView.swift */; };
 		71A9F8ABAE830906DA8D4ACB /* Pods_Bar_Gain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */; };
+		D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB751F852FE50069FE87 /* AddItemView.swift */; };
+		D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB791F8870B70069FE87 /* DataService.swift */; };
 		D751A4971F68387400D8D9CF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A4961F68387400D8D9CF /* Message.swift */; };
 		D751A49F1F68451700D8D9CF /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A49D1F68451700D8D9CF /* MessageCell.swift */; };
 		D751A4A01F68451700D8D9CF /* CustomMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D751A49E1F68451700D8D9CF /* CustomMessageCell.xib */; };
@@ -23,6 +25,7 @@
 		D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CE91F66E16600E117EC /* Profile.swift */; };
 		D7AE4CEC1F67685800E117EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */; };
 		D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */; };
+		D7C7B8141F898522000867E7 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */; };
 		D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EFC2AA1F6B8F43000E183A /* LoginView.swift */; };
 		D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */; };
 		D7FA96DC1F6C212E009F8210 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA96DB1F6C212E009F8210 /* SignUpViewController.swift */; };
@@ -33,6 +36,8 @@
 		6EE5CA3A1F698330008FB6AF /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		90F5864BF1A44800449DBABC /* Pods-Bar_Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.release.xcconfig"; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
+		D738BB751F852FE50069FE87 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		D738BB791F8870B70069FE87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D751A4961F68387400D8D9CF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D751A49D1F68451700D8D9CF /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D751A49E1F68451700D8D9CF /* CustomMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMessageCell.xib; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		D7AE4CE91F66E16600E117EC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D7AE4CEB1F6766FB00E117EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7AE4CED1F681BD700E117EC /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
+		D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		D7EFC2AA1F6B8F43000E183A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		D7FA96DB1F6C212E009F8210 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 				D7FA96D91F6C17DB009F8210 /* MainTabBar.swift */,
 				D7FA96DB1F6C212E009F8210 /* SignUpViewController.swift */,
 				D781B4EE1F6D767200236D78 /* SettingsViewController.swift */,
+				D738BB751F852FE50069FE87 /* AddItemView.swift */,
+				D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -132,6 +140,14 @@
 				6E341A751F695D8400AB4C4B /* Constants.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D738BB781F8870950069FE87 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D738BB791F8870B70069FE87 /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D751A4951F6837A500D8D9CF /* Additional Files */ = {
@@ -172,6 +188,7 @@
 		D7953C591F62DE560051D526 /* Bar_Gain */ = {
 			isa = PBXGroup;
 			children = (
+				D738BB781F8870950069FE87 /* Services */,
 				D751A49C1F68447700D8D9CF /* Custom Views */,
 				D72EDD341F68376C00EED9F4 /* Model */,
 				D72EDD331F68376100EED9F4 /* Control */,
@@ -318,6 +335,7 @@
 			files = (
 				D751A49F1F68451700D8D9CF /* MessageCell.swift in Sources */,
 				D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */,
+				D7C7B8141F898522000867E7 /* ForgotPasswordView.swift in Sources */,
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
 				D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */,
@@ -325,6 +343,8 @@
 				D7FA96DC1F6C212E009F8210 /* SignUpViewController.swift in Sources */,
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
+				D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */,
+				D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */,
 				D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */,
 				D781B4EF1F6D767200236D78 /* SettingsViewController.swift in Sources */,
 				D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */,

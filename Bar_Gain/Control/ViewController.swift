@@ -38,6 +38,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.leftView = contentView
         textField.leftViewMode = UITextFieldViewMode.always
         
+        DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
+            print(snapshot.value!)
+        }
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             self.resultMenu.isHidden = false
             
         })
+        
         let newImage = UIImage(named:"blue-wallpaper22")
         UIView.transition(with: self.imageView,
                           duration: 5,
