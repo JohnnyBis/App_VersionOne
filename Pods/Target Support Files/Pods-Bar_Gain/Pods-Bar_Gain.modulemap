@@ -1,0 +1,6 @@
+framework module Pods_Bar_Gain {
+  umbrella header "Pods-Bar_Gain-umbrella.h"
+
+  export *
+  module * { export * }
+}
