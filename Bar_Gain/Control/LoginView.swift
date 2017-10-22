@@ -30,13 +30,24 @@ class LoginView: UIViewController {
                 print(error!)
             }else{
                 print("Succesfully signed in")
+                let userData = ["provider": user?.providerID]
+                self.databaseSignin(id: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
             }
         })
         
+    }
+    
+    
+    //Creates FirebaseDB user through DataService class.
+    func databaseSignin(id: String, userData: Dictionary<String, String>){
+        DataService.ds.createFirebaseDBUsers(uid: id, userData: userData)
         
         
     }
+    
+    
+   
     
 
 
