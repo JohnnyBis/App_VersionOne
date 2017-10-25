@@ -13,11 +13,11 @@ class ForgotPasswordView:UIViewController{
     @IBOutlet weak var ViewBox: UIView!
     @IBOutlet weak var emailField: UITextField!
     
-    @IBAction func pressedForgotButton(_ sender: UITextField) {
-        FIRAuth.auth()?.sendPasswordReset(withEmail: emailField, completion: { (user, error) in
-            <#code#>
-        })
-    }
+//    @IBAction func pressedForgotButton(_ sender: UITextField) {
+//        FIRAuth.auth()?.sendPasswordReset(withEmail: emailField, completion: { (user, error) in
+//            <#code#>
+//        })
+//    }
     
     
     
