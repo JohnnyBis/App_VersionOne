@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     //Variables:
+    @IBOutlet weak var errorField: UILabel!
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var addressField: UITextField!
@@ -34,6 +35,11 @@ class SignUpViewController: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil{
                 print(error!)
+                self.errorField.isHidden = false
+                let errorMessage = error?.localizedDescription
+                self.errorField.text = errorMessage
+                self.errorField.sizeToFit()
+                
             }else{
                 print("Successful registration")
                 self.performSegue(withIdentifier: "goToHome", sender: self)
