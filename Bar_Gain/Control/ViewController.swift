@@ -9,13 +9,15 @@ import UIKit
 import Firebase
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
- 
-   let userData = ["John", "Jeff", "Rob", "Rob", "John"]
-   let descriptionData = ["Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here."]
-   let itemData = ["Table", "Painting", "Table", "Painting", "Table"]
-   let imageData = ["image", "image1", "image", "image1", "image"]
-   let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
+//    let userData = ["John", "Jeff", "Rob", "Rob", "John"]
+//    let descriptionData = ["Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here."]
+//    let itemData = ["Table", "Painting", "Table", "Painting", "Table"]
+    let imageData = ["image", "image1", "image", "image1", "image"]
+    let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
     
+    var postsList = [Post]()
+//    var refreshControl: UIRefreshControl = UIRefreshControl()
+
     
     //Variables:
     @IBOutlet weak var textField: UITextField!
@@ -50,15 +52,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
         textField.leftView = contentView
         textField.leftViewMode = UITextFieldViewMode.always
-        
-        DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
-            print(snapshot.value!)
-        }
-        
-        
-        
-        
-    
+        retrieveData()
+//        pullToRefresh()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,7 +84,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             let resultFrame = CGRect(x: self.resultMenu.frame.minX, y: self.resultMenu.frame.minY, width: self.resultMenu.frame.width, height: 552)
             self.resultMenu.frame = resultFrame
             self.resultMenu.isHidden = false
-            
         })
         
         let newImage = UIImage(named:"blue-wallpaper22")
@@ -98,22 +93,62 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
                           animations: { self.imageView.image = newImage },
                           completion: nil)
         imageView.contentMode = .center
-        
         }
     
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userData.count
+        return postsList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = resultMenu.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomFeedCell
-        cell.commonInit(itemData[indexPath.item], userName: userData[indexPath.item], description: descriptionData[indexPath.item], imageName: imageData[indexPath.item], profileImage: profileImageData[indexPath.item])
+        let post: Post
+        post = postsList[indexPath.row]
+        cell.descriptionLabel.text = post.caption
+        cell.itemLabel.text = post.itemTitle
+        cell.itemImage.image = UIImage(named: imageData[indexPath.item])
+        cell.userImage.image = UIImage(named: profileImageData[indexPath.item])
+//        cell.commonInit(itemData[indexPath.item], userName: userData[indexPath.item], description: descriptionData[indexPath.item], imageName: imageData[indexPath.item], profileImage: profileImageData[indexPath.item])
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 165
     }
+    
+    @objc func retrieveData(){
+        DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
+            print(snapshot.value!)
+            if snapshot.childrenCount > 0 {
+                self.postsList.removeAll()
+                for item in snapshot.children.allObjects as! [FIRDataSnapshot]{
+                    let itemObject = item.value as! [String: AnyObject]
+                    let itemName = itemObject["Title"]
+                    let itemDescription = itemObject["Description"]
+                    //                let itemImage = itemObject["imageUrl"]
+                    
+                    let post = Post(description: itemDescription as? String, itemName: itemName as? String)
+                    self.postsList.append(post)
+                }
+                self.resultMenu.reloadData()
+            }
+        }
+    }
+    
+//    func pullToRefresh(){
+//
+//        refreshControl.addTarget(self, action: #selector(ViewController.retrieveData), for: UIControlEvents.valueChanged)
+//        if #available(iOS 10.0, *){
+//            resultMenu.refreshControl = refreshControl
+//        }else{
+//            resultMenu.addSubview(refreshControl)
+//        }
+//
+//        refreshControl.endRefreshing()
+//
+//    }
+    
+
     
 }
