@@ -25,6 +25,7 @@ class ForgotPasswordView:UIViewController{
                 let successMessage = "Succesfully sent email for password reset"
                 print(successMessage)
                 self.messageField.text = successMessage
+                self.performSegue(withIdentifier: "goToLoginFromReset", sender: self)
             }
         }
     }
