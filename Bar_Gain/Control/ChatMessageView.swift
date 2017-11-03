@@ -66,7 +66,34 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
             self.heightConstraint.constant = 308
             self.view.layoutIfNeeded()
         }
+        textFieldAnimationBegin()
         
+    }
+    
+    func textFieldAnimationBegin(){
+        UIView.animate(withDuration: 0.75) {
+            let textFrame = CGRect(x: self.messageTextfield.frame.minX, y: self.messageTextfield.frame.minY, width: self.messageTextfield.frame.width + 20, height: self.messageTextfield.frame.height)
+            self.messageTextfield.frame = textFrame
+        }
+        
+        UIView.animate(withDuration: 0.75) {
+            let buttonFrame = CGRect(x: self.sendButton.frame.minX + 20, y: self.sendButton.frame.minY, width: self.sendButton.frame.width, height: self.sendButton.frame.height)
+            self.sendButton.frame = buttonFrame
+            
+        }
+        
+    }
+    
+    func textFieldAnimationEnd(){
+        UIView.animate(withDuration: 0.75) {
+            let textFrame = CGRect(x: self.messageTextfield.frame.minX, y: self.messageTextfield.frame.minY, width: self.messageTextfield.frame.width - 20, height: self.messageTextfield.frame.height)
+            self.messageTextfield.frame = textFrame
+        }
+        
+        UIView.animate(withDuration: 0.75) {
+            let buttonFrame = CGRect(x: self.sendButton.frame.minX - 20, y: self.sendButton.frame.minY, width: self.sendButton.frame.width, height: self.sendButton.frame.height)
+            self.sendButton.frame = buttonFrame
+        }
     }
     
     //MARK: - textFieldDidEndEditing here:
@@ -77,6 +104,8 @@ class ChatMessageView: UIViewController, UITextFieldDelegate, UITableViewDelegat
             self.heightConstraint.constant = 50
             self.view.layoutIfNeeded()
         }
+        
+        textFieldAnimationEnd()
         
     }
     

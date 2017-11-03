@@ -14,15 +14,17 @@ class CustomFeedCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var imageBox: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        roundImage()
+        imageBox.layer.cornerRadius = 5;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
     func commonInit(_ itemName: String, userName: String, description: String, imageName: String, profileImage: String){
         userLabel.text = userName
         itemImage.image = UIImage(named: imageName)
@@ -32,4 +34,12 @@ class CustomFeedCell: UITableViewCell {
     
     }
     
+    func roundImage(){
+        userImage.layer.borderColor = UIColor.black.cgColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
+        userImage.contentMode = .scaleAspectFill
+    }
+    
+
 }
