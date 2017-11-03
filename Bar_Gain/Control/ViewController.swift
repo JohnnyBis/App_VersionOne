@@ -8,7 +8,13 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UITextFieldDelegate{
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+ 
+   let userData = ["John", "Jeff", "Rob", "Rob", "John"]
+   let descriptionData = ["Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here."]
+   let itemData = ["Table", "Painting", "Table", "Painting", "Table"]
+   let imageData = ["image", "image1", "image", "image1", "image"]
+   let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
     
     
     //Variables:
@@ -19,6 +25,13 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        resultMenu.delegate = self
+        resultMenu.dataSource = self
+        self.title = "TableView"
+        let nibName = UINib(nibName: "CustomFeedCell", bundle: nil)
+        resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
         
         resultMenu.isHidden = true
         //Text Field set as Delegate
@@ -41,6 +54,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
             print(snapshot.value!)
         }
+        
         
     
     }
@@ -65,7 +79,6 @@ class ViewController: UIViewController, UITextFieldDelegate{
             let fieldframe = CGRect(x: self.textField.frame.minX, y: 2*UIApplication.shared.statusBarFrame.height, width: self.textField.frame.width, height: self.textField.frame.height)
             self.textField.frame = fieldframe
             self.view.layoutIfNeeded()
-            
         }
         
         UIView.animate(withDuration: 1, delay: 1.5, animations: {
@@ -84,4 +97,20 @@ class ViewController: UIViewController, UITextFieldDelegate{
         imageView.contentMode = .center
         
         }
+    
+ 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = resultMenu.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomFeedCell
+        cell.commonInit(itemData[indexPath.item], userName: userData[indexPath.item], description: descriptionData[indexPath.item], imageName: imageData[indexPath.item], profileImage: profileImageData[indexPath.item])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 299
+    }
+    
 }
