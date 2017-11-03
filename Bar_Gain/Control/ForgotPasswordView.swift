@@ -17,7 +17,7 @@ class ForgotPasswordView:UIViewController{
         FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!) { (error) in
             if error != nil { 
                 print(error!)
-                self.messageField.isHidden = false
+                self.messageField.isHidden = false 
                 let errorMessage = error?.localizedDescription
                 self.messageField.text = errorMessage
             }else{
