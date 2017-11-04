@@ -25,13 +25,13 @@ class CustomFeedCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
     func commonInit(_ itemName: String, userName: String, description: String, imageName: String, profileImage: String){
         userLabel.text = userName
         itemImage.image = UIImage(named: imageName)
         itemLabel.text = itemName
         descriptionLabel.text = description
         userImage.image = UIImage(named:  profileImage)
-    
     }
     
     func roundImage(){
