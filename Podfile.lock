@@ -35,11 +35,13 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - RNCryptor (5.0.1)
 
 DEPENDENCIES:
   - Firebase (~> 3.17)
   - Firebase/Auth
   - Firebase/Database
+  - RNCryptor (~> 5.0)
 
 SPEC CHECKSUMS:
   Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
@@ -50,7 +52,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  RNCryptor: 2e352a488779d1a9184ab629be22a7c5bc84acb5
 
-PODFILE CHECKSUM: d67ab1f32a56cbf2b9211ce920ed6f3e4b4208e4
+PODFILE CHECKSUM: 0d024ca7a124c8138108283cce39851df49f1253
 
 COCOAPODS: 1.3.1

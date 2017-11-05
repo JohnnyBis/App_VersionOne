@@ -8,28 +8,35 @@
 
 import UIKit
 
-class AddItemView: UIViewController {
+class AddItemView: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var conditionsTextField: UITextField!
+    @IBOutlet weak var originTextField: UITextField!
+    @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var numberCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        descriptionField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        
+        numberCount.text = "\(changedText.count - 1)"
+        
+        return changedText.count <= 250
     }
-    */
-
+    
+    
 }
