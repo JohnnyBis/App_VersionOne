@@ -9,5 +9,5 @@ pod 'Firebase', '~>3.17'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'RNCryptor', '~> 5.0'
-
+pod 'FirebaseStorage'
 end
