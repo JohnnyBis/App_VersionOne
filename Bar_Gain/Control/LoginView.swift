@@ -25,13 +25,11 @@ class LoginView: UIViewController {
     
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil{
                 print(error!)
             }else{
                 print("Succesfully signed in")
-                let userData = ["provider": user?.providerID]
-                self.databaseSignin(id: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
             }
         })
@@ -40,11 +38,7 @@ class LoginView: UIViewController {
     
     
     //Creates FirebaseDB user through DataService class.
-    func databaseSignin(id: String, userData: Dictionary<String, String>){
-        DataService.ds.createFirebaseDBUsers(uid: id, userData: userData)
-        
-        
-    }
+    
     
     
    

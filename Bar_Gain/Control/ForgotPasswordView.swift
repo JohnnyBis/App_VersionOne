@@ -14,7 +14,7 @@ class ForgotPasswordView:UIViewController{
     @IBOutlet weak var messageField: UILabel!
     
     @IBAction func passwordResetButton(_ sender: UIButton) {
-        FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!) { (error) in
+        Auth.auth().sendPasswordReset(withEmail: emailField.text!) { (error) in
             if error != nil { 
                 print(error!)
                 self.messageField.isHidden = false 
