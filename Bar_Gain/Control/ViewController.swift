@@ -119,7 +119,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 //
 //    @objc func retrieveData(){
 //
-//        DataService
 //        DataService.ds.REF_POSTS.observe(.value) { (snapshot),<#arg#>  in
 //            print(snapshot.value!)
 //            if snapshot.childrenCount > 0 {
@@ -137,7 +136,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 //            }
 //        }
 //    }
-    
+//
 //    func pullToRefresh(){
 //
 //        refreshControl.addTarget(self, action: #selector(ViewController.retrieveData), for: UIControlEvents.valueChanged)
