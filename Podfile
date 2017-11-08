@@ -5,9 +5,10 @@ target 'Bar_Gain' do
   use_frameworks!
 
   # Pods for Bar_Gain
-pod 'Firebase', '~>3.17'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
-pod 'RNCryptor', '~> 5.0'
 pod 'FirebaseStorage'
+pod 'Firebase/Core'
+pod 'Firebase/Firestore'
+
 end

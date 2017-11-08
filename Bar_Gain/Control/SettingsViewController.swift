@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
         
         do {
-            try FIRAuth.auth()?.signOut()
+            try Auth.auth().signOut()
             performSegue(withIdentifier: "goToSignIn", sender: self)
         }
         catch {

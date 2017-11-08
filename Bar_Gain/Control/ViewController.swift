@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
         textField.leftView = contentView
         textField.leftViewMode = UITextFieldViewMode.always
-        retrieveData()
+//        retrieveData()
 //        pullToRefresh()
 
     }
@@ -116,25 +116,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 165
     }
-    
-    @objc func retrieveData(){
-        DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
-            print(snapshot.value!)
-            if snapshot.childrenCount > 0 {
-                self.postsList.removeAll()
-                for item in snapshot.children.allObjects as! [FIRDataSnapshot]{
-                    let itemObject = item.value as! [String: AnyObject]
-                    let itemName = itemObject["Title"]
-                    let itemDescription = itemObject["Description"]
-                    //                let itemImage = itemObject["imageUrl"]
-                    
-                    let post = Post(description: itemDescription as? String, itemName: itemName as? String)
-                    self.postsList.append(post)
-                }
-                self.resultMenu.reloadData()
-            }
-        }
-    }
+//
+//    @objc func retrieveData(){
+//
+//        DataService
+//        DataService.ds.REF_POSTS.observe(.value) { (snapshot),<#arg#>  in
+//            print(snapshot.value!)
+//            if snapshot.childrenCount > 0 {
+//                self.postsList.removeAll()
+//                for item in snapshot.children.allObjects as! [FIRDataSnapshot]{
+//                    let itemObject = item.value as! [String: AnyObject]
+//                    let itemName = itemObject["Title"]
+//                    let itemDescription = itemObject["Description"]
+//                    //                let itemImage = itemObject["imageUrl"]
+//
+//                    let post = Post(description: itemDescription as? String, itemName: itemName as? String)
+//                    self.postsList.append(post)
+//                }
+//                self.resultMenu.reloadData()
+//            }
+//        }
+//    }
     
 //    func pullToRefresh(){
 //

@@ -9,9 +9,12 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
+import Firebase
+
 
 class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var conditionsTextField: UITextField!
@@ -22,14 +25,12 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
     @IBOutlet weak var addPictureButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    
     let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionField.delegate = self
         picker.delegate = self
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,16 +77,33 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
     
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        uploadtoFIRStorage()
+//        uploadtoFIRStorage()
+        addPostToFirebase()
+    }
+    
+    func addPostToFirebase(){
+        let description = descriptionField.text!
+        let title = titleTextField.text!
+        let origin = originTextField.text!
+        let condition = conditionsTextField.text!
+        let currentUser = Auth.auth().currentUser?.uid
+        
+        if Auth.auth().currentUser != nil{
+            let postData = ["Title": title, "Origin": origin, "Condition": condition, "Description": description, currentUser!: true] as [String : Any]
+            DataService.ds.createFirebaseDBPosts(userData: postData)
+            dismiss(animated: true, completion: nil)
+        }else{
+            print("Error with user authentication")
+        }
     }
 
     
     func uploadtoFIRStorage(){
-        if FIRAuth.auth()?.currentUser != nil{
+        if Auth.auth().currentUser != nil{
             let imageName = NSUUID().uuidString
-            let storageRef = FIRStorage.storage().reference().child("\(imageName).png")
+            let storageRef = Storage.storage().reference().child("\(imageName).png")
             if let uploadImage = UIImagePNGRepresentation(self.itemImage.image!){
-                storageRef.put(uploadImage, metadata: nil, completion: { (metadata, error) in
+                storageRef.putData(uploadImage, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         print("Error: \(error!)")
                     }
@@ -93,7 +111,7 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
                     let downloadUrl = metadata?.downloadURL()?.absoluteURL
                     print(downloadUrl!)
                 })
-                
+            
             }
             
         }else{
@@ -102,11 +120,6 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
     }
     
     
-    
-    
-    
-    
-    
-    
+
     
 }
