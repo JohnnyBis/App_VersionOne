@@ -76,10 +76,12 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
     
     
     
-    @IBAction func submitButtonPressed(_ sender: UIButton) {
+    @IBAction func continueButtonPressed(_ sender: UIButton) {
 //        uploadtoFIRStorage()
         addPostToFirebase()
+
     }
+    
     
     func addPostToFirebase(){
         let description = descriptionField.text!

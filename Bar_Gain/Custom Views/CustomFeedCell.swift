@@ -20,6 +20,7 @@ class CustomFeedCell: UITableViewCell {
         super.awakeFromNib()
         roundImage()
         imageBox.layer.cornerRadius = 5;
+        contentView.layer.cornerRadius = 5.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

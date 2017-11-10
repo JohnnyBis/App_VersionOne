@@ -26,10 +26,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
-        profileImage.layer.borderWidth = 3
-        profileImage.layer.borderColor = UIColor.white.cgColor
-        
 
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,11 +58,11 @@ class SignUpViewController: UIViewController {
         })
         
     }
-    
-    func roundProfileImage(){
-        
-    }
-    
+//
+//    func roundProfileImage(){
+//
+//    }
+//
     
     
     func databaseSignin(id: String, userData: Dictionary<String, String>){

@@ -11,23 +11,30 @@ import FirebaseAuth
 
 class ForgotPasswordView:UIViewController{
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var messageField: UILabel!
+    @IBOutlet weak var boxField: UIView!
+    @IBOutlet weak var resetButton: UIView!
     
     @IBAction func passwordResetButton(_ sender: UIButton) {
         Auth.auth().sendPasswordReset(withEmail: emailField.text!) { (error) in
             if error != nil { 
                 print(error!)
-                self.messageField.isHidden = false 
-                let errorMessage = error?.localizedDescription
-                self.messageField.text = errorMessage
+                self.emailField.layer.borderColor = UIColor.red.cgColor
+                self.emailField.layer.borderWidth = 0.5
+             
             }else{
-                self.messageField.isHidden = false
                 let successMessage = "Succesfully sent email for password reset"
                 print(successMessage)
-                self.messageField.text = successMessage
                 self.performSegue(withIdentifier: "goToLoginFromReset", sender: self)
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        self.boxField.layer.cornerRadius = 10.0
+        self.resetButton.layer.cornerRadius = 10.0
+        self.emailField.layer.borderWidth = 1.0
+        self.emailField.layer.borderColor = UIColor.lightGray.cgColor
+       
     }
     
 
