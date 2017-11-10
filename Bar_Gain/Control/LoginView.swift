@@ -15,12 +15,23 @@ class LoginView: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
+                
+            }else{
+                print("No user signed in")
+                
+            }
+        }
+
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     
@@ -36,12 +47,6 @@ class LoginView: UIViewController {
         
     }
     
-    
-    //Creates FirebaseDB user through DataService class.
-    
-    
-    
-   
     
 
 

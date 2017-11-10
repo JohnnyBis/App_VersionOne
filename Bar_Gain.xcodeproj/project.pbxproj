@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6E341A761F695D8400AB4C4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E341A751F695D8400AB4C4B /* Constants.swift */; };
-		6EE5CA3B1F698330008FB6AF /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE5CA3A1F698330008FB6AF /* TableView.swift */; };
 		71A9F8ABAE830906DA8D4ACB /* Pods_Bar_Gain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */; };
+		9813B7E61FB639F800E985BC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813B7E51FB639F800E985BC /* TableView.swift */; };
 		D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB751F852FE50069FE87 /* AddItemView.swift */; };
 		D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB791F8870B70069FE87 /* DataService.swift */; };
 		D751A4971F68387400D8D9CF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A4961F68387400D8D9CF /* Message.swift */; };
@@ -36,8 +36,8 @@
 
 /* Begin PBXFileReference section */
 		6E341A751F695D8400AB4C4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6EE5CA3A1F698330008FB6AF /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		90F5864BF1A44800449DBABC /* Pods-Bar_Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.release.xcconfig"; sourceTree = "<group>"; };
+		9813B7E51FB639F800E985BC /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
 		D738BB751F852FE50069FE87 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		D738BB791F8870B70069FE87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		6EE5CA391F6982C9008FB6AF /* Profile TableViews */ = {
 			isa = PBXGroup;
 			children = (
-				6EE5CA3A1F698330008FB6AF /* TableView.swift */,
+				9813B7E51FB639F800E985BC /* TableView.swift */,
 			);
 			path = "Profile TableViews";
 			sourceTree = "<group>";
@@ -365,7 +365,6 @@
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
 				D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */,
-				6EE5CA3B1F698330008FB6AF /* TableView.swift in Sources */,
 				D7FA96DC1F6C212E009F8210 /* SignUpViewController.swift in Sources */,
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
@@ -373,6 +372,7 @@
 				D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */,
 				D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */,
 				D7C426421FAB4D88007E6A3E /* CustomFeedCell.swift in Sources */,
+				9813B7E61FB639F800E985BC /* TableView.swift in Sources */,
 				D781B4EF1F6D767200236D78 /* SettingsViewController.swift in Sources */,
 				D7773E301FACA6BB007F880B /* Post.swift in Sources */,
 				D7EFC2AB1F6B8F43000E183A /* LoginView.swift in Sources */,
