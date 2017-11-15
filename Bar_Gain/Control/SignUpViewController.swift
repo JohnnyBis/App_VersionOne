@@ -21,47 +21,19 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         fieldBox.layer.cornerRadius = 10.0
     }
-
+    
+    @IBAction func continueButtonPressed(_ sender: UIButton) {
+        AppDelegate.userData["First Name"] = firstName.text!
+        AppDelegate.userData["Last Name"] = lastName.text!
+        performSegue(withIdentifier: "goToSecondSignUp", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
   
   
     }
-    
-//    @IBAction func registerButtonPressed(_ sender: UIButton) {
-//        //Add user on firebase database
-//        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
-//            if error != nil{
-//                print(error!)
-//                self.errorField.isHidden = false
-//                let errorMessage = error?.localizedDescription
-//                self.errorField.text = errorMessage
-//                self.errorField.sizeToFit()
-//                
-//            }else{
-//                let userData = ["provider": user?.providerID, "Full Name": self.fullNameField.text!, "Email": self.emailField.text!, "Address": self.addressField.text!, "ZIP Code": self.zipCodeField.text!, "State": self.stateField.text!, "Phone Number": self.phoneNumberField.text!]
-//                
-//                self.databaseSignin(id: (user?.uid)!, userData: userData as! Dictionary<String, String>)
-//                print("Successful registration")
-//                self.performSegue(withIdentifier: "goToHome", sender: self)
-//
-//            }
-//        })
-//        
-//    }
-//
-//    func roundProfileImage(){
-//
-//    }
-//
-    
-    
-    func databaseSignin(id: String, userData: Dictionary<String, String>){
-        DataService.ds.createFirebaseDBUsers(uid: id, userData: userData)
-        
-    }
-    
     
     
 //    func fieldCheck(){

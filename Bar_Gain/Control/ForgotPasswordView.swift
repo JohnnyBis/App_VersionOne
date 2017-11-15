@@ -34,7 +34,7 @@ class ForgotPasswordView:UIViewController{
         self.resetButton.layer.cornerRadius = 10.0
         self.emailField.layer.borderWidth = 1.0
         self.emailField.layer.borderColor = UIColor.lightGray.cgColor
-       
+        
     }
     
 

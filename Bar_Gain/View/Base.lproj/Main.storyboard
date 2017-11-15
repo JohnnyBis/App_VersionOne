@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -80,6 +80,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="continueButtonPressed:" destination="Iea-rv-DcW" eventType="touchUpInside" id="GS8-4q-whl"/>
                                             <action selector="passwordResetButton:" destination="qc7-C3-jxH" eventType="touchUpInside" id="iXD-eC-y8e"/>
                                         </connections>
                                     </button>
@@ -96,23 +97,20 @@
                         <viewLayoutGuide key="safeArea" id="ry4-2u-3hl"/>
                     </view>
                     <connections>
-                        <outlet property="addressField" destination="i5j-Ot-d9k" id="63F-cO-e2Y"/>
                         <outlet property="fieldBox" destination="v6E-rO-Ltx" id="E6f-fe-w4L"/>
                         <outlet property="firstName" destination="o9b-wv-RXw" id="iuh-G6-vYM"/>
-                        <outlet property="fullNameField" destination="o9b-wv-RXw" id="mJr-fI-1Gx"/>
-                        <outlet property="lastName" destination="mPA-9S-0Yg" id="vH2-sg-NTg"/>
-                        <outlet property="stateField" destination="7Ii-A3-cQ4" id="JwX-6y-HVU"/>
-                        <outlet property="zipCodeField" destination="3fP-Cc-4xX" id="Yjn-eb-OPK"/>
+                        <outlet property="lastName" destination="mPA-9S-0Yg" id="SQK-bd-5q2"/>
+                        <segue destination="9Ox-yE-GZp" kind="show" identifier="goToSecondSignUp" id="Xef-Dx-eej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xt-i4-KUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3191.1999999999998" y="919.79010494752629"/>
+            <point key="canvasLocation" x="-3378" y="920"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up View Two-->
         <scene sceneID="lsV-PP-cak">
             <objects>
-                <viewController id="9Ox-yE-GZp" customClass="SignUpViewController" customModule="Bar_Gain" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Ox-yE-GZp" customClass="SignUpViewTwo" customModule="Bar_Gain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1C4-kn-qTf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,12 +144,15 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="continueButtonPressed:" destination="9Ox-yE-GZp" eventType="touchUpInside" id="RnO-DK-hmw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31775832176208496" green="0.62797790765762329" blue="0.92501366138458252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VUl-W9-XLo">
-                                <rect key="frame" x="0.0" y="33" width="71" height="27"/>
+                                <rect key="frame" x="-7" y="33" width="71" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk3-F4-a1c">
@@ -202,17 +203,20 @@
                         <viewLayoutGuide key="safeArea" id="bQQ-Yu-hzP"/>
                     </view>
                     <connections>
-                        <outlet property="fieldBox2" destination="xPJ-OI-r6z" id="A1M-ft-5eR"/>
+                        <outlet property="email" destination="X0M-Zi-Hr5" id="CVR-Up-OVd"/>
+                        <outlet property="errorField" destination="DEj-at-Gze" id="UUq-eb-zoj"/>
+                        <outlet property="password" destination="8Us-Hd-05m" id="txw-s7-IYW"/>
+                        <segue destination="kYf-dP-5qv" kind="show" identifier="goToThirdSignUp" id="gEf-n6-kQE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDY-xR-DgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2500" y="919.79010494752629"/>
+            <point key="canvasLocation" x="-2578" y="920"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Three-->
         <scene sceneID="uaE-f3-mp1">
             <objects>
-                <viewController id="kYf-dP-5qv" sceneMemberID="viewController">
+                <viewController id="kYf-dP-5qv" customClass="SignUpViewThree" customModule="Bar_Gain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V6w-4s-tnG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,12 +235,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-mn-t5i">
-                                <rect key="frame" x="23" y="441" width="214" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Not now, let me check it before"/>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvq-gW-M2e">
                                 <rect key="frame" x="23" y="150" width="329" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -262,17 +260,39 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgj-6U-1HX">
+                                        <rect key="frame" x="111" y="237" width="108" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Get me started!">
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finishButtonPressed:" destination="kYf-dP-5qv" eventType="touchUpInside" id="LtF-vR-cQh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94867008924484253" green="0.94938892126083374" blue="0.94878143072128296" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-mn-t5i">
+                                <rect key="frame" x="68" y="441" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Not now, let me finish this later"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="wTW-oz-3iS"/>
                     </view>
+                    <connections>
+                        <outlet property="address" destination="i5j-Ot-d9k" id="ZhM-Z4-lLN"/>
+                        <outlet property="state" destination="7Ii-A3-cQ4" id="Z8T-Qw-ug2"/>
+                        <outlet property="zipCode" destination="3fP-Cc-4xX" id="KuU-Xk-Nmn"/>
+                        <segue destination="8Yx-Ep-j3k" kind="show" identifier="goToHomeFromSignUp" id="20J-yR-ACr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFC-Z5-8XL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1783.2" y="919.79010494752629"/>
+            <point key="canvasLocation" x="-1764" y="920"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Aiu-FY-JdJ">
@@ -515,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N88-Cd-QPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="403.44827586206901"/>
+            <point key="canvasLocation" x="1500" y="430"/>
         </scene>
         <!--Chat Message View-->
         <scene sceneID="M8e-KI-n8h">
@@ -586,7 +606,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dia-G9-aPe">
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dia-G9-aPe">
                                 <rect key="frame" x="0.0" y="78" width="375" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -594,13 +614,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Dia-G9-aPe" firstAttribute="leading" secondItem="giw-aE-M1D" secondAttribute="leading" id="0Pw-39-HaM"/>
-                            <constraint firstItem="Dia-G9-aPe" firstAttribute="top" secondItem="fqI-o5-eXr" secondAttribute="bottom" id="0zG-bw-tnE"/>
+                            <constraint firstItem="Dia-G9-aPe" firstAttribute="top" secondItem="fqI-o5-eXr" secondAttribute="bottom" constant="8" id="0zG-bw-tnE"/>
                             <constraint firstItem="fqI-o5-eXr" firstAttribute="leading" secondItem="giw-aE-M1D" secondAttribute="leading" id="8J7-Y0-Ybh"/>
-                            <constraint firstItem="Ixd-80-gMO" firstAttribute="top" secondItem="Dia-G9-aPe" secondAttribute="bottom" id="ICp-kO-gQJ"/>
+                            <constraint firstItem="Ixd-80-gMO" firstAttribute="top" secondItem="Dia-G9-aPe" secondAttribute="bottom" constant="-8" id="ICp-kO-gQJ"/>
                             <constraint firstItem="Dia-G9-aPe" firstAttribute="trailing" secondItem="giw-aE-M1D" secondAttribute="trailing" id="S7o-7s-q9y"/>
                             <constraint firstItem="fqI-o5-eXr" firstAttribute="top" secondItem="giw-aE-M1D" secondAttribute="top" id="Wp8-2t-aso"/>
                             <constraint firstItem="Ixd-80-gMO" firstAttribute="leading" secondItem="giw-aE-M1D" secondAttribute="leading" id="aQo-vn-7gL"/>
-                            <constraint firstItem="Dia-G9-aPe" firstAttribute="top" secondItem="fqI-o5-eXr" secondAttribute="bottom" id="bRw-2V-FFq"/>
+                            <constraint firstItem="Dia-G9-aPe" firstAttribute="top" secondItem="fqI-o5-eXr" secondAttribute="bottom" constant="8" id="bRw-2V-FFq"/>
                             <constraint firstItem="fqI-o5-eXr" firstAttribute="trailing" secondItem="giw-aE-M1D" secondAttribute="trailing" id="ddU-AG-vLn"/>
                             <constraint firstItem="Ixd-80-gMO" firstAttribute="bottom" secondItem="giw-aE-M1D" secondAttribute="bottom" id="sQz-3b-FCP"/>
                             <constraint firstItem="Ixd-80-gMO" firstAttribute="trailing" secondItem="giw-aE-M1D" secondAttribute="trailing" id="u6x-TY-EhY"/>
@@ -618,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD2-Gd-PGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2311.1999999999998" y="402.54872563718146"/>
+            <point key="canvasLocation" x="2297" y="430"/>
         </scene>
         <!--Login View-->
         <scene sceneID="1jp-jJ-1XU">
@@ -799,7 +819,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcv-h9-fOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="-679"/>
+            <point key="canvasLocation" x="-942" y="-636"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -985,7 +1005,7 @@
         <image name="shutterstock_81301759" width="1000" height="778"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BKy-MM-kE9"/>
+        <segue reference="SRm-du-NSG"/>
         <segue reference="TQp-wz-Yd9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
