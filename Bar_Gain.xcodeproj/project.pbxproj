@@ -10,6 +10,8 @@
 		6E341A761F695D8400AB4C4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E341A751F695D8400AB4C4B /* Constants.swift */; };
 		71A9F8ABAE830906DA8D4ACB /* Pods_Bar_Gain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB50CA9FAB1A5273E5465475 /* Pods_Bar_Gain.framework */; };
 		9813B7E61FB639F800E985BC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813B7E51FB639F800E985BC /* TableView.swift */; };
+		982443631FBE6791006517B3 /* AddItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443621FBE6791006517B3 /* AddItemTableView.swift */; };
+		982443651FBE71B5006517B3 /* ItemFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443641FBE71B5006517B3 /* ItemFieldView.swift */; };
 		D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB751F852FE50069FE87 /* AddItemView.swift */; };
 		D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB791F8870B70069FE87 /* DataService.swift */; };
 		D751A4971F68387400D8D9CF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A4961F68387400D8D9CF /* Message.swift */; };
@@ -41,6 +43,8 @@
 		6E341A751F695D8400AB4C4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		90F5864BF1A44800449DBABC /* Pods-Bar_Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.release.xcconfig"; sourceTree = "<group>"; };
 		9813B7E51FB639F800E985BC /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		982443621FBE6791006517B3 /* AddItemTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableView.swift; sourceTree = "<group>"; };
+		982443641FBE71B5006517B3 /* ItemFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFieldView.swift; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
 		D738BB751F852FE50069FE87 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		D738BB791F8870B70069FE87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				D797580F1FBB53BF00871E33 /* SignUpViewThree.swift */,
 				D781B4EE1F6D767200236D78 /* SettingsViewController.swift */,
 				D738BB751F852FE50069FE87 /* AddItemView.swift */,
+				982443621FBE6791006517B3 /* AddItemTableView.swift */,
+				982443641FBE71B5006517B3 /* ItemFieldView.swift */,
 				D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */,
 			);
 			path = Control;
@@ -374,10 +380,12 @@
 				D7C7B8141F898522000867E7 /* ForgotPasswordView.swift in Sources */,
 				D7AE4CEA1F66E16600E117EC /* Profile.swift in Sources */,
 				D7953C5D1F62DE560051D526 /* ViewController.swift in Sources */,
+				982443631FBE6791006517B3 /* AddItemTableView.swift in Sources */,
 				D7FA96DA1F6C17DB009F8210 /* MainTabBar.swift in Sources */,
 				D7FA96DC1F6C212E009F8210 /* SignUpViewController.swift in Sources */,
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7BDF3461FBB43C900FDD14E /* User.swift in Sources */,
+				982443651FBE71B5006517B3 /* ItemFieldView.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
 				D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */,
 				D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */,
