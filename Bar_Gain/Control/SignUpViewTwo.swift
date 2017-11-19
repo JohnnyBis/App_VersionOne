@@ -14,25 +14,37 @@ class SignUpViewTwo: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorField: UILabel!
+    @IBOutlet weak var errorBox: UIView!
+    @IBOutlet weak var emailBox: UIView!
+    @IBOutlet weak var passwordBox: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Error feature is hidden
+        errorBox.isHidden = true
+        errorField.isHidden = true
+        //All boxes are rounded
+        errorBox.layer.cornerRadius = 10.0
+        passwordBox.layer.cornerRadius = 10.0
+        emailBox.layer.cornerRadius = 10.0
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        AppDelegate.userData["Email"] = email.text!
         Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
             if error != nil{
                 print(error!)
                 self.errorField.isHidden = false
+                self.errorBox.isHidden = false
+                
                 let errorMessage = error?.localizedDescription
                 self.errorField.text = errorMessage
                 self.errorField.sizeToFit()
                 
             }else{
-                self.databaseSignin(id: (user?.uid)!, userData: AppDelegate.userData)
+                AppDelegate.userData["Email"] = self.email.text!
+                self.creatDBUser(id: (user?.uid)!, userData: AppDelegate.userData)
                 print("Successful registration")
                 self.performSegue(withIdentifier: "goToThirdSignUp", sender: self)
                 
@@ -48,7 +60,7 @@ class SignUpViewTwo: UIViewController {
     }
     
     
-    func databaseSignin(id: String, userData: Dictionary<String, String>){
+    func creatDBUser(id: String, userData: Dictionary<String, String>){
         DataService.ds.createFirebaseDBUsers(uid: id, userData: userData)
         
     }

@@ -32,6 +32,7 @@ class SignUpViewThree: UIViewController {
         }else{
             performSegue(withIdentifier: "goToHomeFromSignUp", sender: self)
         }
+        
     
     }
     func checkforSubscription() -> Bool{
@@ -41,12 +42,12 @@ class SignUpViewThree: UIViewController {
         }else{
             AppDelegate.userData["Subscription"] = "False"
             let userid = Auth.auth().currentUser?.uid
-            databaseSignin(id: userid!, userData: AppDelegate.userData)
+            appendUserDBInfo(id: userid!, userData: AppDelegate.userData)
             return true
         }
     }
     
-    func databaseSignin(id: String, userData: Dictionary<String, String>){
+    func appendUserDBInfo(id: String, userData: Dictionary<String, String>){
         DataService.ds.createFirebaseDBUsers(uid: id, userData: userData)
     }
         
