@@ -19,6 +19,7 @@ class ItemFieldView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fieldRecognizer(myIndex: myIndex)
+        
 
     }
 
@@ -31,28 +32,58 @@ class ItemFieldView: UIViewController {
         if myIndex == 0{
             textField.placeholder = placeholder[myIndex]
             fieldHeader.text = addItemFields[myIndex]
+            textField.text = AppDelegate.postData["Item Title"]
             fieldHeader.sizeToFit()
+            
         }else if myIndex == 1{
             textField.placeholder = placeholder[myIndex]
             fieldHeader.text = addItemFields[myIndex]
             fieldHeader.sizeToFit()
+            textField.text = AppDelegate.postData["Conditions"]
         
         }else if myIndex == 2{
             textField.placeholder = placeholder[myIndex]
             fieldHeader.text = addItemFields[myIndex]
             fieldHeader.sizeToFit()
             fieldHeader.center = CGPoint(x: w / 2, y: 48)
+            textField.text = AppDelegate.postData["Shipping Method"]
 
 
         }else{
             textField.placeholder = placeholder[myIndex]
             fieldHeader.text = addItemFields[myIndex]
             fieldHeader.sizeToFit()
+            textField.text = AppDelegate.postData["Description"]
             
         }
     }
     
+    
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        appendDataToDictionary(myIndex: myIndex)
+        performSegue(withIdentifier: "goToAddItemView", sender: self)
+    }
+    
+    func appendDataToDictionary(myIndex: Int){
+        if myIndex == 0{
+            AppDelegate.postData["Item Title"] = textField.text!
+            print(AppDelegate.postData)
+            
+        }else if myIndex == 1{
+            AppDelegate.postData["Conditions"] = textField.text!
+            print(AppDelegate.postData)
+            
+        }else if myIndex == 2{
+            AppDelegate.postData["Shipping Method"] = textField.text!
+            print(AppDelegate.postData)
 
+        }else{
+            AppDelegate.postData["Description"] = textField.text!
+            print(AppDelegate.postData)
+        }
+    }
+    
 
 
 }

@@ -12,7 +12,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     static var userData = [String:String]()
-    static var postData = [String:Any]()
+    static var postData = [String:String]()
         var window: UIWindow?
 
 

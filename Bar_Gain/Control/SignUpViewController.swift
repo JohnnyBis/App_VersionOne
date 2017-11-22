@@ -16,15 +16,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var fieldBox: UIView!
     @IBOutlet weak var errorBox: UIView!
     @IBOutlet weak var errorLabel: UILabel!
-
+    @IBOutlet weak var continueBox: UIView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fieldBox.layer.cornerRadius = 10.0
         errorBox.isHidden = true
-        errorBox.layer.cornerRadius = 10.0
-        errorLabel.isHidden = true        
+        errorBox.layer.cornerRadius = 5.0
+        errorLabel.isHidden = true
+        continueBox.layer.cornerRadius = 10.0 
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
