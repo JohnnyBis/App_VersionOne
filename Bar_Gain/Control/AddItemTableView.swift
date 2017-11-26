@@ -14,6 +14,7 @@ var myIndex = 0
 
 class AddItemTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    var identities = [String]()
     
     @IBOutlet weak var itemFields: UITableView!
     @IBOutlet weak var boxButton: UIView!
@@ -31,7 +32,7 @@ class AddItemTableView: UIViewController, UITableViewDelegate, UITableViewDataSo
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         self.tabBarController?.tabBar.isHidden = true
-        
+        identities = ["TitleView","ConditionsView","ShippingView", "DescriptionView"]
 
     }
 
@@ -62,9 +63,11 @@ class AddItemTableView: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = indexPath.row
-        performSegue(withIdentifier: "goToDetailedField", sender: self)
-        
+//        myIndex = indexPath.row
+        let viewControllerName = identities[indexPath.row]
+        let viewController = storyboard?.instantiateViewController(withIdentifier: viewControllerName)
+        self.navigationController?.pushViewController(viewController!, animated: true)
+        itemFields.deselectRow(at: indexPath, animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
