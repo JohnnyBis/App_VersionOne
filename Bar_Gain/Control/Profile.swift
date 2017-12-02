@@ -149,7 +149,7 @@ class Profile: UIViewController,UIScrollViewDelegate, UITableViewDelegate,UITabl
         //12 66 147
         cellBackgroundView.backgroundColor = UIColor(red: 12, green: 66, blue: 147, alpha: 1)
         cell.selectedBackgroundView = cellBackgroundView
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.textColor = UIColor.darkGray
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         cell.textLabel?.text = "Test table:"+(String(describing: tableViewList?.index(of: tableView) as Int!))
         cell.textLabel?.text?.append(", Row: " + String(describing:indexPath.row))

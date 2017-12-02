@@ -17,7 +17,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     var postsList = [Post]()
 //    var refreshControl: UIRefreshControl = UIRefreshControl()
-
     
     //Variables:
     @IBOutlet weak var textField: UITextField!
@@ -28,6 +27,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textField.borderStyle = .roundedRect
+        textField.textAlignment = .left
         
         resultMenu.delegate = self
         resultMenu.dataSource = self
@@ -57,6 +58,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
     }
     
+//    func configureSearchController() {
+//        searchController = UISearchController(searchResultsController: nil)
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,34 +71,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     
     //Text Field moves upword when user beings editing.
-    func textFieldDidBeginEditing(_ sender: UITextField) {
-        startEditing()
-        
-    }
-    
-    func startEditing(){
-        UIView.animate(withDuration: 1){
-            let logoframe = CGRect(x: self.imageLogo.frame.minX, y: -self.imageLogo.frame.height , width: self.imageLogo.frame.width, height: self.imageLogo.frame.height)
-            self.imageLogo.frame = logoframe
-            let fieldframe = CGRect(x: self.textField.frame.minX, y: 2*UIApplication.shared.statusBarFrame.height - 6, width: self.textField.frame.width, height: self.textField.frame.height)
-            self.textField.frame = fieldframe
-            self.view.layoutIfNeeded()
-        }
-        
-        UIView.animate(withDuration: 1, delay: 1.5, animations: {
-            let resultFrame = CGRect(x: self.resultMenu.frame.minX, y: self.resultMenu.frame.minY, width: self.resultMenu.frame.width, height: 552)
-            self.resultMenu.frame = resultFrame
-            self.resultMenu.isHidden = false
-        })
-        
-        let newImage = UIImage(named:"blue-wallpaper22")
-        UIView.transition(with: self.imageView,
-                          duration: 5,
-                          options: .transitionCrossDissolve,
-                          animations: { self.imageView.image = newImage },
-                          completion: nil)
-        imageView.contentMode = .center
-        }
+//    func textFieldDidBeginEditing(_ sender: UITextField) {
+//        startEditing()
+//
+//    }
+//
+//    func startEditing(){
+//        UIView.animate(withDuration: 1){
+//            let logoframe = CGRect(x: self.imageLogo.frame.minX, y: -self.imageLogo.frame.height , width: self.imageLogo.frame.width, height: self.imageLogo.frame.height)
+//            self.imageLogo.frame = logoframe
+//            let fieldframe = CGRect(x: self.textField.frame.minX, y: 2*UIApplication.shared.statusBarFrame.height - 6, width: self.textField.frame.width, height: self.textField.frame.height)
+//            self.textField.frame = fieldframe
+//            self.view.layoutIfNeeded()
+//        }
+//
+//        UIView.animate(withDuration: 1, delay: 1.5, animations: {
+//            let resultFrame = CGRect(x: self.resultMenu.frame.minX, y: self.resultMenu.frame.minY, width: self.resultMenu.frame.width, height: 552)
+//            self.resultMenu.frame = resultFrame
+//            self.resultMenu.isHidden = false
+//        })
+//
+//        let newImage = UIImage(named:"blue-wallpaper22")
+//        UIView.transition(with: self.imageView,
+//                          duration: 5,
+//                          options: .transitionCrossDissolve,
+//                          animations: { self.imageView.image = newImage },
+//                          completion: nil)
+//        imageView.contentMode = .center
+//        }
     
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -153,3 +158,5 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
     
 }
+
+
