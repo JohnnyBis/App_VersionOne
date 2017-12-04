@@ -18,7 +18,7 @@ class TitleFieldView: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 //        fieldRecognizer(myIndex: myIndex)
-        self.navigationController?.navigationBar.tintColor = UIColor.gray
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         textField.delegate = self
         textField.text = AppDelegate.postData["Item Title"]
         textField.placeholder = placeholder[0]

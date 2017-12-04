@@ -10,12 +10,12 @@ import UIKit
 
 class PostAnItemView: UIViewController {
 
-    @IBOutlet weak var getStartedBox: UIView!
     @IBOutlet weak var postNowButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStartedBox.layer.cornerRadius = 10.0
+        postNowButton.layer.cornerRadius = 10.0
+        
 
     }
 

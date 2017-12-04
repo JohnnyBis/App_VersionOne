@@ -33,7 +33,9 @@
 		9813B7E61FB639F800E985BC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813B7E51FB639F800E985BC /* TableView.swift */; };
 		982443631FBE6791006517B3 /* AddItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443621FBE6791006517B3 /* AddItemTableView.swift */; };
 		982443651FBE71B5006517B3 /* TitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443641FBE71B5006517B3 /* TitleFieldView.swift */; };
+		98353D471FD3ABB100A8C794 /* MyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98353D461FD3ABB100A8C794 /* MyItemView.swift */; };
 		986C37CF1FD226850027DE36 /* PostAnItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986C37CE1FD226850027DE36 /* PostAnItemView.swift */; };
+		98E682F31FD3434E00FFEC2F /* MyItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */; };
 		D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB751F852FE50069FE87 /* AddItemView.swift */; };
 		D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB791F8870B70069FE87 /* DataService.swift */; };
 		D751A4971F68387400D8D9CF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751A4961F68387400D8D9CF /* Message.swift */; };
@@ -88,7 +90,9 @@
 		9813B7E51FB639F800E985BC /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		982443621FBE6791006517B3 /* AddItemTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableView.swift; sourceTree = "<group>"; };
 		982443641FBE71B5006517B3 /* TitleFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleFieldView.swift; sourceTree = "<group>"; };
+		98353D461FD3ABB100A8C794 /* MyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemView.swift; sourceTree = "<group>"; };
 		986C37CE1FD226850027DE36 /* PostAnItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnItemView.swift; sourceTree = "<group>"; };
+		98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemTableView.swift; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
 		D738BB751F852FE50069FE87 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		D738BB791F8870B70069FE87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				982443621FBE6791006517B3 /* AddItemTableView.swift */,
 				982443641FBE71B5006517B3 /* TitleFieldView.swift */,
 				986C37CE1FD226850027DE36 /* PostAnItemView.swift */,
+				98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */,
+				98353D461FD3ABB100A8C794 /* MyItemView.swift */,
 				D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */,
 			);
 			path = Control;
@@ -433,7 +439,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyPostApi/EasyPostApi.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -446,7 +454,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPostApi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -470,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D751A49F1F68451700D8D9CF /* MessageCell.swift in Sources */,
+				98E682F31FD3434E00FFEC2F /* MyItemTableView.swift in Sources */,
 				D7AE4CE61F66DC1500E117EC /* ResultTableView.swift in Sources */,
 				D79758101FBB53BF00871E33 /* SignUpViewThree.swift in Sources */,
 				D7C7B8141F898522000867E7 /* ForgotPasswordView.swift in Sources */,
@@ -481,6 +492,7 @@
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7BDF3461FBB43C900FDD14E /* User.swift in Sources */,
 				982443651FBE71B5006517B3 /* TitleFieldView.swift in Sources */,
+				98353D471FD3ABB100A8C794 /* MyItemView.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
 				D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */,
 				D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */,
