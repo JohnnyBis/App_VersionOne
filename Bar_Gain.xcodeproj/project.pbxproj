@@ -31,10 +31,13 @@
 		98032D891FD0F69700223834 /* SanFranciscoDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98032D731FD0F69300223834 /* SanFranciscoDisplay-Ultralight.otf */; };
 		98032D8A1FD0F69700223834 /* SanFranciscoText-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98032D741FD0F69300223834 /* SanFranciscoText-MediumItalic.otf */; };
 		9813B7E61FB639F800E985BC /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9813B7E51FB639F800E985BC /* TableView.swift */; };
+		9818F7A31FD4DBE600BAB421 /* ShippingMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818F7A21FD4DBE600BAB421 /* ShippingMethodView.swift */; };
 		982443631FBE6791006517B3 /* AddItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443621FBE6791006517B3 /* AddItemTableView.swift */; };
 		982443651FBE71B5006517B3 /* TitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982443641FBE71B5006517B3 /* TitleFieldView.swift */; };
+		982F318F1FE8D4B2009AFBA0 /* ConditionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F318E1FE8D4B2009AFBA0 /* ConditionSelectionView.swift */; };
 		98353D471FD3ABB100A8C794 /* MyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98353D461FD3ABB100A8C794 /* MyItemView.swift */; };
 		986C37CF1FD226850027DE36 /* PostAnItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986C37CE1FD226850027DE36 /* PostAnItemView.swift */; };
+		98A9F1101FDE2ED80043ADFA /* MyItemFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A9F10F1FDE2ED80043ADFA /* MyItemFieldCell.swift */; };
 		98E682F31FD3434E00FFEC2F /* MyItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */; };
 		D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB751F852FE50069FE87 /* AddItemView.swift */; };
 		D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738BB791F8870B70069FE87 /* DataService.swift */; };
@@ -88,10 +91,13 @@
 		98032D731FD0F69300223834 /* SanFranciscoDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Ultralight.otf"; sourceTree = "<group>"; };
 		98032D741FD0F69300223834 /* SanFranciscoText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-MediumItalic.otf"; sourceTree = "<group>"; };
 		9813B7E51FB639F800E985BC /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		9818F7A21FD4DBE600BAB421 /* ShippingMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingMethodView.swift; sourceTree = "<group>"; };
 		982443621FBE6791006517B3 /* AddItemTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableView.swift; sourceTree = "<group>"; };
 		982443641FBE71B5006517B3 /* TitleFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleFieldView.swift; sourceTree = "<group>"; };
+		982F318E1FE8D4B2009AFBA0 /* ConditionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSelectionView.swift; sourceTree = "<group>"; };
 		98353D461FD3ABB100A8C794 /* MyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemView.swift; sourceTree = "<group>"; };
 		986C37CE1FD226850027DE36 /* PostAnItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnItemView.swift; sourceTree = "<group>"; };
+		98A9F10F1FDE2ED80043ADFA /* MyItemFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemFieldCell.swift; sourceTree = "<group>"; };
 		98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemTableView.swift; sourceTree = "<group>"; };
 		C8232BEDCF46DB0AE74F2038 /* Pods-Bar_Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar_Gain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar_Gain/Pods-Bar_Gain.debug.xcconfig"; sourceTree = "<group>"; };
 		D738BB751F852FE50069FE87 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
@@ -228,6 +234,9 @@
 				98E682F21FD3434E00FFEC2F /* MyItemTableView.swift */,
 				98353D461FD3ABB100A8C794 /* MyItemView.swift */,
 				D7C7B8131F898522000867E7 /* ForgotPasswordView.swift */,
+				9818F7A21FD4DBE600BAB421 /* ShippingMethodView.swift */,
+				98A9F10F1FDE2ED80043ADFA /* MyItemFieldCell.swift */,
+				982F318E1FE8D4B2009AFBA0 /* ConditionSelectionView.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -492,9 +501,12 @@
 				D751A4971F68387400D8D9CF /* Message.swift in Sources */,
 				D7BDF3461FBB43C900FDD14E /* User.swift in Sources */,
 				982443651FBE71B5006517B3 /* TitleFieldView.swift in Sources */,
+				982F318F1FE8D4B2009AFBA0 /* ConditionSelectionView.swift in Sources */,
 				98353D471FD3ABB100A8C794 /* MyItemView.swift in Sources */,
+				9818F7A31FD4DBE600BAB421 /* ShippingMethodView.swift in Sources */,
 				D7953C5B1F62DE560051D526 /* AppDelegate.swift in Sources */,
 				D738BB7A1F8870B70069FE87 /* DataService.swift in Sources */,
+				98A9F1101FDE2ED80043ADFA /* MyItemFieldCell.swift in Sources */,
 				D738BB761F852FE50069FE87 /* AddItemView.swift in Sources */,
 				D7AE4CEE1F681BD700E117EC /* ChatMessageView.swift in Sources */,
 				D7C426421FAB4D88007E6A3E /* CustomFeedCell.swift in Sources */,

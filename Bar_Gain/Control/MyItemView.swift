@@ -12,6 +12,7 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var imageBox: UIView!
     @IBOutlet weak var selectedImage: UIImageView!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     let imagePicker = UIImagePickerController()
     
@@ -24,6 +25,8 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         //Hidden back button on navigation bar
         navigationItem.hidesBackButton = true
+        postButton.layer.cornerRadius = 5.0
+        saveButton.layer.cornerRadius = 5.0
     }
     
     @IBAction func addPictureButtonPressed(_ sender: UIButton) {
@@ -54,6 +57,8 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         if AppDelegate.postData.count == 4{
             addPostToFirebaseDB(userData: AppDelegate.postData)
             
+        }else{
+            print("Fields not complete")
         }
     }
     

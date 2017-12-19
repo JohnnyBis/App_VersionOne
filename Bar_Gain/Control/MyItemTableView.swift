@@ -8,10 +8,11 @@
 
 import UIKit
 let fields = ["Item Title", "Conditions", "Shipping method", "Description"]
+let fieldsSubtitle = ["Set your title.", "Set the conditions.", "Choose a shipping method", "Write some information."]
 
-class MyItemTableView: UITableViewController {
+class MyItemTableView: UITableViewController{
     var identities = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         identities = ["TitleView","ConditionsView","ShippingView", "DescriptionView"]
@@ -43,8 +44,11 @@ class MyItemTableView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = fields[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyItemFieldCell
+        cell.fieldTitle.text = fields[indexPath.row]
+        cell.fieldTitle.sizeToFit()
+        cell.fieldInput.text = fieldsSubtitle[indexPath.row]
+        cell.fieldInput.sizeToFit()
         cell.accessoryType = .disclosureIndicator
         
         return cell
