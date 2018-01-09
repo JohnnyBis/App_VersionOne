@@ -18,6 +18,7 @@ class DataService{
     private var _REF_BASE = DB_BASE
     private var _REF_POSTS = DB_BASE.collection("Posts")
     private var _REF_USERS = DB_BASE.collection("Users")
+    private var _REF_SAVED_POSTS = DB_BASE.collection("Saved Posts")
     
     var REF_BASE: Firestore{
         return _REF_BASE
@@ -29,6 +30,10 @@ class DataService{
     
     var REF_USERS: CollectionReference{
         return _REF_USERS
+    }
+    
+    var REF_SAVED_POSTS: CollectionReference{
+        return _REF_SAVED_POSTS
     }
     
     func createFirebaseDBUsers(uid: String, userData: Dictionary<String, String>){
@@ -52,6 +57,21 @@ class DataService{
         }
         
     }
+    
+    func createFirebaseDBSavedPosts(userData: Dictionary<String, Any>){
+        REF_SAVED_POSTS.addDocument(data: userData) { (error) in
+            
+            if error != nil{
+                print(error!)
+                
+            }else{
+                print("Successfully registered saved post to Firestore database")
+                
+            }
+        }
+    }
+    
+    
     
     
 

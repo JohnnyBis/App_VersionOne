@@ -20,7 +20,7 @@ class TitleFieldView: UIViewController, UITextFieldDelegate{
 //        fieldRecognizer(myIndex: myIndex)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         textField.delegate = self
-        textField.text = AppDelegate.postData["Item Title"]
+        textField.text = AppDelegate.postData["Item Title"] as? String
         textField.placeholder = placeholder[0]
         
     }

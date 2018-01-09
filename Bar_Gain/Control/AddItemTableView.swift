@@ -79,7 +79,7 @@ class AddItemTableView: UIViewController, UIImagePickerControllerDelegate, UINav
         
     }
     
-    func addPostToFirebaseDB(userData: Dictionary<String, String>){
+    func addPostToFirebaseDB(userData: Dictionary<String, Any>){
         DataService.ds.createFirebaseDBPosts(userData: userData)
     }
     

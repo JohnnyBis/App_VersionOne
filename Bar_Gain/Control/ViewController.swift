@@ -7,6 +7,8 @@
 //
 import UIKit
 import Firebase
+import FirebaseStorage
+import Kingfisher
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
 //    let userData = ["John", "Jeff", "Rob", "Rob", "John"]
@@ -15,20 +17,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     let imageData = ["image", "image1", "image", "image1", "image"]
     let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
     
-    var postsList = [Post]()
+    var postList = [Post]()
 //    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     //Variables:
-    @IBOutlet weak var textField: UITextField!
+//    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var resultMenu: UITableView!
     @IBOutlet weak var imageLogo: UIImageView!
+//    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.borderStyle = .roundedRect
-        textField.textAlignment = .left
+//        textField.borderStyle = .roundedRect
+//        textField.textAlignment = .left
         
         resultMenu.delegate = self
         resultMenu.dataSource = self
@@ -36,11 +39,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let nibName = UINib(nibName: "CustomFeedCell", bundle: nil)
         resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
         
-        resultMenu.isHidden = true
-        //Text Field set as Delegate
-        textField.delegate = self
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        
+//        //Text Field set as Delegate
+//        textField.delegate = self
+//        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+//
         //Search Icon in Text Field
         let leftImage = UIImageView()
         let searchIcon = UIImage(named: "search")
@@ -51,11 +53,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         contentView.addSubview(leftImage)
         contentView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
         leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
-        textField.leftView = contentView
-        textField.leftViewMode = UITextFieldViewMode.always
+//        textField.leftView = contentView
+//        textField.leftViewMode = UITextFieldViewMode.always
 //        retrieveData()
 //        pullToRefresh()
-
+        fetchData()
+//        cancelButton.isHidden = true
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        navigationItem.title = "Find an Item"
     }
     
 //    func configureSearchController() {
@@ -67,8 +75,39 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    func fetchData(){
+        DataService.ds.REF_POSTS.addSnapshotListener { (querySnapshot, error) in
+            guard let postChanges = querySnapshot else{
+                print("Error fetching document: \(error!)")
+                return
+            }
+            postChanges.documentChanges.forEach({ (diff) in
+                if diff.type == .added || diff.type == .modified || diff.type == .removed{
+                    let description = diff.document.data()["Description"] as! String
+                    let title = diff.document.data()["Item Title"] as? String
+                    let url = diff.document.data()["Image Url"] as? String
+                    let post = Post(description: description, itemName: title, url: url)
+                    self.postList.append(post)
+                    DispatchQueue.main.async(execute: {
+                        self.resultMenu.reloadData()
+                    })
+                    print(self.postList)
+                }
+            })
+
+        }
+    }
     
-    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        cancelButton.isHidden = false
+//
+//    }
+//
+//    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+//        view.endEditing(true)
+//        cancelButton.isHidden = true
+//    }
+//
     
     //Text Field moves upword when user beings editing.
 //    func textFieldDidBeginEditing(_ sender: UITextField) {
@@ -102,46 +141,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postsList.count
+        return postList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = resultMenu.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomFeedCell
-        let post: Post
-        post = postsList[indexPath.row]
-        cell.descriptionLabel.text = post.caption
+        let post = postList[indexPath.row]
         cell.itemLabel.text = post.itemTitle
-        cell.itemImage.image = UIImage(named: imageData[indexPath.item])
-        cell.userImage.image = UIImage(named: profileImageData[indexPath.item])
-//        cell.commonInit(itemData[indexPath.item], userName: userData[indexPath.item], description: descriptionData[indexPath.item], imageName: imageData[indexPath.item], profileImage: profileImageData[indexPath.item])
+        cell.descriptionLabel.text = post.caption
         
+        if let imageUrl = post.imageUrl {
+//            cell.itemImage.loadImageUsingCacheWithUrlString(imageUrl)
+            let url = URL(string: imageUrl)
+            cell.itemImage.kf.setImage(with: url)
+            
+        }
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 165
     }
-//
-//    @objc func retrieveData(){
-//
-//        DataService.ds.REF_POSTS.observe(.value) { (snapshot),<#arg#>  in
-//            print(snapshot.value!)
-//            if snapshot.childrenCount > 0 {
-//                self.postsList.removeAll()
-//                for item in snapshot.children.allObjects as! [FIRDataSnapshot]{
-//                    let itemObject = item.value as! [String: AnyObject]
-//                    let itemName = itemObject["Title"]
-//                    let itemDescription = itemObject["Description"]
-//                    //                let itemImage = itemObject["imageUrl"]
-//
-//                    let post = Post(description: itemDescription as? String, itemName: itemName as? String)
-//                    self.postsList.append(post)
-//                }
-//                self.resultMenu.reloadData()
-//            }
-//        }
-//    }
-//
+
+
 //    func pullToRefresh(){
 //
 //        refreshControl.addTarget(self, action: #selector(ViewController.retrieveData), for: UIControlEvents.valueChanged)

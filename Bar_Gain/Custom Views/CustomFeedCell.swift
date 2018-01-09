@@ -18,29 +18,37 @@ class CustomFeedCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        roundImage()
-        imageBox.layer.cornerRadius = 5;
+//        roundImage()
+        imageBox.layer.cornerRadius = 5.0
         contentView.layer.cornerRadius = 5.0
+        itemImage.layer.cornerRadius = 5.0
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func commonInit(_ itemName: String, userName: String, description: String, imageName: String, profileImage: String){
-        userLabel.text = userName
-        itemImage.image = UIImage(named: imageName)
-        itemLabel.text = itemName
-        descriptionLabel.text = description
-        userImage.image = UIImage(named:  profileImage)
-    }
-    
-    func roundImage(){
-        userImage.layer.borderColor = UIColor.black.cgColor
-        userImage.layer.cornerRadius = userImage.frame.height/2
-        userImage.clipsToBounds = true
-        userImage.contentMode = .scaleAspectFill
-    }
+//    func commonInit(_ itemName: String, userName: String, description: String, imageName: String, profileImage: String){
+//        userLabel.text = userName
+//        itemImage.image = UIImage(named: imageName)
+//        itemLabel.text = itemName
+//        descriptionLabel.text = description
+//        userImage.image = UIImage(named:  profileImage)
+//    }
+//
+//    func commonInit(_ itemName: String, description: String, image: UIImage){
+//        itemLabel.text = itemName
+//        descriptionLabel.text = description
+//        itemImage.image = UIImage(
+//    }
+//
+//    func roundImage(){
+//        userImage.layer.borderColor = UIColor.black.cgColor
+//        userImage.layer.cornerRadius = userImage.frame.height/2
+//        userImage.clipsToBounds = true
+//        userImage.contentMode = .scaleAspectFill
+//    }
     
 
 }

@@ -9,16 +9,14 @@
 import Foundation
 
 class Post {
-//     var imageUrl: String
+     var imageUrl: String?
 //     var userName: String
-
-
     var caption: String?
     var itemTitle: String?
     
     
-    init(description: String?, itemName: String?) {
-//        self.imageUrl = image
+    init(description: String?, itemName: String?, url: String?) {
+        self.imageUrl = url
 //        self.userName = user
         self.caption = description
         self.itemTitle = itemName

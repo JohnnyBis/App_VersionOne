@@ -38,13 +38,18 @@ class ConditionSelectionView: UIViewController {
     }
     
     @IBAction func learnMoreButtonPressed(_ sender: UIButton) {
-        containmentBox.frame.size.height = 200
+        UIView.animate(withDuration: 0.5) {
+            
+            let containerFrame = CGRect(x: self.containmentBox.frame.minX, y: self.containmentBox.frame.minY, width: self.containmentBox.frame.width, height: self.containmentBox.frame.height + 300)
+            self.containmentBox.frame = containerFrame
+        }
         
     }
     
     
     func setConditionsToPostDB(Conditions: String){
-        print(Conditions)
+        AppDelegate.postData["Conditions"] = Conditions
+        print(AppDelegate.postData)
     }
     
 

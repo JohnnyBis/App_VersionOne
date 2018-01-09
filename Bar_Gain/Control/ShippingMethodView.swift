@@ -15,7 +15,7 @@ class ShippingMethodView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +26,7 @@ class ShippingMethodView: UIViewController {
     
     @IBAction func upsButtonPressed(_ sender: UIButton) {
         animateCarrierBox()
+    
     }
     
     
