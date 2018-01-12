@@ -60,10 +60,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         fetchData()
 //        cancelButton.isHidden = true
         
-        let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
-        navigationItem.title = "Find an Item"
     }
     
 //    func configureSearchController() {
