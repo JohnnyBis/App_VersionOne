@@ -10,14 +10,16 @@ import Firebase
 import FirebaseStorage
 import Kingfisher
 
+var postList = [Post]()
+var itemIndex = 0
+
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
 //    let userData = ["John", "Jeff", "Rob", "Rob", "John"]
 //    let descriptionData = ["Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here.", "Item for sale here."]
 //    let itemData = ["Table", "Painting", "Table", "Painting", "Table"]
     let imageData = ["image", "image1", "image", "image1", "image"]
     let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
-    
-    var postList = [Post]()
+
 //    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     //Variables:
@@ -39,10 +41,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let nibName = UINib(nibName: "CustomFeedCell", bundle: nil)
         resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
         
-//        //Text Field set as Delegate
-//        textField.delegate = self
-//        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-//
         //Search Icon in Text Field
         let leftImage = UIImageView()
         let searchIcon = UIImage(named: "search")
@@ -83,11 +81,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
                     let title = diff.document.data()["Item Title"] as? String
                     let url = diff.document.data()["Image Url"] as? String
                     let post = Post(description: description, itemName: title, url: url)
-                    self.postList.append(post)
+                    postList.append(post)
                     DispatchQueue.main.async(execute: {
                         self.resultMenu.reloadData()
                     })
-                    print(self.postList)
+                    print(postList)
                 }
             })
 
@@ -153,6 +151,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemIndex = indexPath.row
+        performSegue(withIdentifier: "goToSelectedItemFromFeed", sender: self)
     }
     
     
