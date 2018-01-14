@@ -52,6 +52,8 @@ class FireStorageImageUpload: NSObject{
             }else{
                 completionBlock(nil, "Not able to convert UIImage to JPEG.")
             }
+        }else{
+            print("Upload image error: user could not be authenticated.")
         }
         
     }

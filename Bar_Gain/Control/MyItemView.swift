@@ -41,16 +41,22 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             selectedImage.contentMode = .scaleAspectFit
             selectedImage.image = pickedImage
             
-            FireStorageImageUpload().uploadImage(pickedImage, progressBlock: { (percentage) in
-                self.progressBar.setProgress(Float(percentage), animated: true)
-            }, completionBlock: { (fileUrl, error) in
-                if error != nil{
-                    print(error!)
-                }else{
-                    AppDelegate.postData["Image Url"] = "\(fileUrl!)"
-                    print(fileUrl!)
-                }
-            })
+            if Auth.auth().currentUser != nil{
+                FireStorageImageUpload().uploadImage(pickedImage, progressBlock: { (percentage) in
+                    self.progressBar.setProgress(Float(percentage), animated: true)
+                }, completionBlock: { (fileUrl, error) in
+                    if error != nil{
+                        print(error!)
+                    }else{
+                        AppDelegate.postData["Image Url"] = "\(fileUrl!)"
+                        print(fileUrl!)
+                    }
+                })
+                
+            }else{
+                print("User not authenticated.")
+            }
+            
         }
         imageBox.isHidden = true
         dismiss(animated: true, completion: nil)
@@ -78,7 +84,8 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             addPostToFirebaseDB(userData: AppDelegate.postData)
             
             performSegue(withIdentifier: "goToMessageFromMyItem", sender: self)
-           
+            AppDelegate.postData.removeAll()
+
         }else{
             print("Fields not complete")
         }
@@ -95,7 +102,7 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             addSavedPostToFirebaseDB(userData: AppDelegate.postData)
 
             performSegue(withIdentifier: "goToMessageFromMyItem", sender: self)
-            
+            AppDelegate.postData.removeAll()
         }else{
             print("Fields not complete")
         }

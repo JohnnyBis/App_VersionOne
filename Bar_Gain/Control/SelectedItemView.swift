@@ -9,6 +9,10 @@
 import UIKit
 
 class SelectedItemView: UIViewController {
+    
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemDescription: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +32,7 @@ class SelectedItemView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
-    @IBOutlet weak var itemDescription: UILabel!
+
     
     /*
     // MARK: - Navigation

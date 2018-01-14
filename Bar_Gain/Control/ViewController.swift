@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     //Variables:
 //    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var resultMenu: UITableView!
     @IBOutlet weak var imageLogo: UIImageView!
 //    @IBOutlet weak var cancelButton: UIButton!
@@ -42,15 +42,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
         
         //Search Icon in Text Field
-        let leftImage = UIImageView()
-        let searchIcon = UIImage(named: "search")
-        leftImage.image = searchIcon
-        
+//        let leftImage = UIImageView()
+//        let searchIcon = UIImage(named: "search")
+//        leftImage.image = searchIcon
+//
         //Set bounderies in Text Field
-        let contentView = UIView()
-        contentView.addSubview(leftImage)
-        contentView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
-        leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
+//        let contentView = UIView()
+//        contentView.addSubview(leftImage)
+//        contentView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+//        leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
 //        textField.leftView = contentView
 //        textField.leftViewMode = UITextFieldViewMode.always
 //        retrieveData()
@@ -70,26 +70,37 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func fetchData(){
-        DataService.ds.REF_POSTS.addSnapshotListener { (querySnapshot, error) in
-            guard let postChanges = querySnapshot else{
-                print("Error fetching document: \(error!)")
-                return
-            }
-            postChanges.documentChanges.forEach({ (diff) in
-                if diff.type == .added || diff.type == .modified || diff.type == .removed{
-                    let description = diff.document.data()["Description"] as! String
-                    let title = diff.document.data()["Item Title"] as? String
-                    let url = diff.document.data()["Image Url"] as? String
-                    let post = Post(description: description, itemName: title, url: url)
-                    postList.append(post)
-                    DispatchQueue.main.async(execute: {
-                        self.resultMenu.reloadData()
-                    })
-                    print(postList)
+        if Auth.auth().currentUser != nil{
+            DataService.ds.REF_POSTS.addSnapshotListener { (querySnapshot, error) in
+                guard let postChanges = querySnapshot else{
+                    print("Error fetching document: \(error!)")
+                    return
                 }
-            })
-
+                postChanges.documentChanges.forEach({ (diff) in
+                    if diff.type == .added || diff.type == .modified || diff.type == .removed{
+                        let description = diff.document.data()["Description"] as! String
+                        let title = diff.document.data()["Item Title"] as? String
+                        if let url = diff.document.data()["Image Url"] as? String {
+                            let post = Post(description: description, itemName: title, url: url)
+                            postList.append(post)
+                            DispatchQueue.main.async(execute: {
+                                self.resultMenu.reloadData()
+                            })
+                            
+                        }else{
+                            print("Image not found.")
+                        }
+                        
+                        print(postList)
+                    }
+                })
+                
+            }
+            
+        }else{
+            print("Data fecth error: user could not be authenitcated.")
         }
+       
     }
     
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -145,11 +156,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         cell.descriptionLabel.text = post.caption
         
         if let imageUrl = post.imageUrl {
-//            cell.itemImage.loadImageUsingCacheWithUrlString(imageUrl)
             let url = URL(string: imageUrl)
             cell.itemImage.kf.setImage(with: url)
             
         }
+     
+        
+        
         return cell
     }
     
