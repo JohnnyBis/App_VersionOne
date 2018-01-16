@@ -13,13 +13,20 @@ class Post {
 //     var userName: String
     var caption: String?
     var itemTitle: String?
+    var condition: String?
+    var views: Int?
+    var documentID: String?
     
     
-    init(description: String?, itemName: String?, url: String?) {
+    init(description: String?, itemName: String?, url: String?, condition: String?, views: Int?, documentID: String?) {
         self.imageUrl = url
 //        self.userName = user
         self.caption = description
         self.itemTitle = itemName
+        self.condition = condition
+        self.views = views
+        self.documentID = documentID
+        
     }
 
 }
