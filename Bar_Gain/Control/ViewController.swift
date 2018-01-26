@@ -37,7 +37,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         resultMenu.delegate = self
         resultMenu.dataSource = self
-        self.title = "TableView"
         let nibName = UINib(nibName: "CustomFeedCell", bundle: nil)
         resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
         

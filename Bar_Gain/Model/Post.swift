@@ -28,5 +28,7 @@ class Post {
         self.documentID = documentID
         
     }
+    
+    init()
 
 }
