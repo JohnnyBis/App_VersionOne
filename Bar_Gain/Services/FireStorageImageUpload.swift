@@ -29,15 +29,21 @@ class FireStorageImageUpload: NSObject{
                 let metadata = StorageMetadata()
                 metadata.contentType = "image/jpg"
                 
-                let uploadTask = imageReference.putData(convertedImage, metadata: metadata, completion: { (metadata, error) in
-                    if let metadata = metadata{
-                        completionBlock(metadata.downloadURL(), nil)
-                        
-                        
+                let uploadTask = imageReference.putData(convertedImage)
+                imageReference.downloadURL { (url, error) in
+                    if error != nil{
+                        print(error!)
                     }else{
-                        completionBlock(nil, error?.localizedDescription)
+                        completionBlock(url, nil)
                     }
-                })
+                }
+//                let uploadTask = imageReference.putData(convertedImage, metadata: metadata, completion: { (metadata, error) in
+//                    if let metadata = metadata{
+//                        completionBlock(metadata.downloadURL(), nil)
+//                    }else{
+//                        completionBlock(nil, error?.localizedDescription)
+//                    }
+//                })
                 
                 uploadTask.observe(.progress, handler: { (snapshot) in
                     guard let uploadProgress = snapshot.progress else{

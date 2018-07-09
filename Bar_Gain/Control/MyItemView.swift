@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
 class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var imageBox: UIView!
@@ -17,6 +18,7 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var progressBar: UIProgressView!
     
     let imagePicker = UIImagePickerController()
+    var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         imagePicker.sourceType = .photoLibrary
         
         //Hidden back button on navigation bar
-        navigationItem.hidesBackButton = true
         postButton.layer.cornerRadius = 5.0
         saveButton.layer.cornerRadius = 5.0
     }
@@ -40,27 +41,10 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             selectedImage.contentMode = .scaleAspectFit
             selectedImage.image = pickedImage
-            
-            if Auth.auth().currentUser != nil{
-                FireStorageImageUpload().uploadImage(pickedImage, progressBlock: { (percentage) in
-                    self.progressBar.setProgress(Float(percentage), animated: true)
-                }, completionBlock: { (fileUrl, error) in
-                    if error != nil{
-                        print(error!)
-                    }else{
-                        AppDelegate.postData["Image Url"] = "\(fileUrl!)"
-                        print(fileUrl!)
-                    }
-                })
-                
-            }else{
-                print("User not authenticated.")
-            }
-            
+            image = pickedImage
         }
         imageBox.isHidden = true
         dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -80,19 +64,31 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBAction func postMyItemButtonPressed(_ sender: UIButton) {
         let currentUser = Auth.auth().currentUser?.uid
         AppDelegate.postData[currentUser!] = true
-        if AppDelegate.postData.count >= 4{
-            addPostToFirebaseDB(userData: AppDelegate.postData)
-            
-            performSegue(withIdentifier: "goToMessageFromMyItem", sender: self)
-            AppDelegate.postData.removeAll()
-
-        }else{
-            print("Fields not complete")
-        }
+        uploadData(image: image)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func uploadData(image: UIImage){
+        FireStorageImageUpload().uploadImage(image, progressBlock: { (percentage) in
+            self.progressBar.setProgress(Float(percentage), animated: true)
+        }, completionBlock: { (fileUrl, error) in
+            if error != nil{
+                print("ERROR: " + error!)
+                return
+            }
+            AppDelegate.postData["Image Url"] = "\(fileUrl!)"
+            
+            if AppDelegate.postData.count == 5{
+                self.performSegue(withIdentifier: "goToMessageFromMyItem", sender: self)
+                self.addPostToFirebaseDB(userData: AppDelegate.postData)
+                AppDelegate.postData.removeAll()
+            }
+            
+        })
     }
     
     @IBAction func saveMyItemButtonPressed(_ sender: UIButton) {
@@ -106,7 +102,6 @@ class MyItemView: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         }else{
             print("Fields not complete")
         }
-        
     }
     
     

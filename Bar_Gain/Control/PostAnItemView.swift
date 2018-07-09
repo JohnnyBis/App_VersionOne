@@ -23,37 +23,21 @@ class PostAnItemView: UIViewController, UINavigationControllerDelegate, UICollec
         savedItems.delegate = self
         savedItems.dataSource = self
         savedItems.allowsSelection = true
-
-        fetchData()
-        
+        fetchSavedItems()
         
     }
     
-    func fetchData(){
-        DataService.ds.REF_POSTS.addSnapshotListener { (querySnapshot, error) in
-            guard let postChanges = querySnapshot else{
-                print("Error fetching document: \(error!)")
-                return
+    func fetchSavedItems(){
+        
+        Post.fetchSavedItems(savedPostList) { (post, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                self.savedPostList.append(post!)
+                DispatchQueue.main.async(execute: {
+                    self.savedItems.reloadData()
+                })
             }
-            postChanges.documentChanges.forEach({ (diff) in
-                if diff.type == .added || diff.type == .modified || diff.type == .removed{
-                    let description = diff.document.data()["Description"] as? String
-                    let title = diff.document.data()["Item Title"] as? String
-                    let condition = diff.document.data()["Condition"] as? String
-                    if let url = diff.document.data()["Image Url"] as? String{
-                        let post = Post(description: description, itemName: title, url: url, condition: condition, views: nil, documentID: nil)
-                        self.savedPostList.append(post)
-                        DispatchQueue.main.async(execute: {
-                            self.savedItems.reloadData()
-                        })
-                    }else{
-                        print("Image not found.")
-                    }
-                
-                    print(self.savedPostList)
-                }
-            })
-            
         }
     }
     
@@ -87,11 +71,6 @@ class PostAnItemView: UIViewController, UINavigationControllerDelegate, UICollec
 //
 //
 //    }
-
-
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

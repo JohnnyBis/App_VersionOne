@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 //    let itemData = ["Table", "Painting", "Table", "Painting", "Table"]
     let imageData = ["image", "image1", "image", "image1", "image"]
     let profileImageData = ["profile", "profile", "profile", "profile", "profile"]
-
+    
 //    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     //Variables:
@@ -27,41 +27,39 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 //    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var resultMenu: UITableView!
     @IBOutlet weak var imageLogo: UIImageView!
-//    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        textField.borderStyle = .roundedRect
-//        textField.textAlignment = .left
+        //        textField.borderStyle = .roundedRect
+        //        textField.textAlignment = .left
         
         resultMenu.delegate = self
         resultMenu.dataSource = self
         let nibName = UINib(nibName: "CustomFeedCell", bundle: nil)
         resultMenu.register(nibName, forCellReuseIdentifier: "customCell")
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         //Search Icon in Text Field
-//        let leftImage = UIImageView()
-//        let searchIcon = UIImage(named: "search")
-//        leftImage.image = searchIcon
-//
+        //        let leftImage = UIImageView()
+        //        let searchIcon = UIImage(named: "search")
+        //        leftImage.image = searchIcon
+        //
         //Set bounderies in Text Field
-//        let contentView = UIView()
-//        contentView.addSubview(leftImage)
-//        contentView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
-//        leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
-//        textField.leftView = contentView
-//        textField.leftViewMode = UITextFieldViewMode.always
-//        retrieveData()
-//        pullToRefresh()
-          fetchData()
-//        cancelButton.isHidden = true
-        
+        //        let contentView = UIView()
+        //        contentView.addSubview(leftImage)
+        //        contentView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        //        leftImage.frame = CGRect(x: 10, y: 0, width: 10, height: 10)
+        //        textField.leftView = contentView
+        //        textField.leftViewMode = UITextFieldViewMode.always
+        //        retrieveData()
+        //        pullToRefresh()
+
     }
     
-//    func configureSearchController() {
-//        searchController = UISearchController(searchResultsController: nil)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        postList = []
+        fetchData()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,40 +67,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func fetchData(){
-        if Auth.auth().currentUser != nil{
-            DataService.ds.REF_POSTS.addSnapshotListener { (querySnapshot, error) in
-                guard let postChanges = querySnapshot else{
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-                postChanges.documentChanges.forEach({ (diff) in
-                    if diff.type == .added || diff.type == .modified || diff.type == .removed{
-                        let documentID = diff.document.documentID as? String
-                        let description = diff.document.data()["Description"] as? String
-                        let title = diff.document.data()["Item Title"] as? String
-                        let condition = diff.document.data()["Conditions"] as? String
-                        let views = diff.document.data()["Views"] as? Int
-                        if let url = diff.document.data()["Image Url"] as? String {
-                            let post = Post(description: description, itemName: title, url: url, condition: condition, views: views, documentID: documentID)
-                            postList.append(post)
-                            DispatchQueue.main.async(execute: {
-                                self.resultMenu.reloadData()
-                            })
-
-                        }else{
-                            print("Image not found.")
-                        }
-
-                        print(postList)
-                    }
+        Post.fetchData(postList) { (post, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                postList.append(post!)
+                DispatchQueue.main.async(execute: {
+                    self.resultMenu.reloadData()
                 })
-
             }
-
-        }else{
-            print("Data fecth error: user could not be authenitcated.")
         }
-
     }
     
   
@@ -153,6 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = resultMenu.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomFeedCell
         let post = postList[indexPath.row]
         cell.itemLabel.text = post.itemTitle
@@ -161,12 +136,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         if let imageUrl = post.imageUrl {
             let url = URL(string: imageUrl)
             cell.itemImage.kf.setImage(with: url)
-            
         }
-     
-        
-        
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

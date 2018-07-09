@@ -34,57 +34,7 @@ class TitleFieldView: UIViewController, UITextFieldDelegate{
         AppDelegate.postData["Item Title"] = textField.text
         print(AppDelegate.postData)
     }
-    
-    
-    
-//    func fieldRecognizer(myIndex: Int){
-//        if myIndex == 0{
-//            textField.placeholder = placeholder[myIndex]
-//            textField.text = AppDelegate.postData["Item Title"]
-//
-//        }else if myIndex == 1{
-//            textField.placeholder = placeholder[myIndex]
-////            fieldHeader.sizeToFit()
-//            textField.text = AppDelegate.postData["Conditions"]
-//
-//        }else if myIndex == 2{
-//            textField.placeholder = placeholder[myIndex]
-////            fieldHeader.center = CGPoint(x: w / 2, y: 48)
-//            textField.text = AppDelegate.postData["Shipping Method"]
-//
-//
-//        }else{
-//            textField.placeholder = placeholder[myIndex]
-//            textField.text = AppDelegate.postData["Description"]
-//
-//        }
-//    }
-//
-    
-    
-//    @IBAction func backButtonPressed(_ sender: UIButton) {
-//        appendDataToDictionary(myIndex: myIndex)
-//        performSegue(withIdentifier: "goToAddItemView", sender: self)
-//    }
-//
-//    func appendDataToDictionary(myIndex: Int){
-//        if myIndex == 0{
-//            AppDelegate.postData["Item Title"] = textField.text!
-//            print(AppDelegate.postData)
-//
-//        }else if myIndex == 1{
-//            AppDelegate.postData["Conditions"] = textField.text!
-//            print(AppDelegate.postData)
-//
-//        }else if myIndex == 2{
-//            AppDelegate.postData["Shipping Method"] = textField.text!
-//            print(AppDelegate.postData)
-//
-//        }else{
-//            AppDelegate.postData["Description"] = textField.text!
-//            print(AppDelegate.postData)
-//        }
-//    }
+
     
 
 

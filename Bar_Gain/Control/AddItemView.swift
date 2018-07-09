@@ -100,26 +100,26 @@ class AddItemView: UIViewController, UITextViewDelegate, UIImagePickerController
     }
 
     
-    func uploadtoFIRStorage(){
-        if Auth.auth().currentUser != nil{
-            let imageName = NSUUID().uuidString
-            let storageRef = Storage.storage().reference().child("\(imageName).png")
-            if let uploadImage = UIImagePNGRepresentation(self.itemImage.image!){
-                storageRef.putData(uploadImage, metadata: nil, completion: { (metadata, error) in
-                    if error != nil {
-                        print("Error: \(error!)")
-                    }
-                    print("Uploaded Succesfully - Metadata: \(metadata!)")
-                    let downloadUrl = metadata?.downloadURL()?.absoluteURL
-                    print(downloadUrl!)
-                })
-            
-            }
-            
-        }else{
-            print("Error with user authentication.")
-        }
-    }
+//    func uploadtoFIRStorage(){
+//        if Auth.auth().currentUser != nil{
+//            let imageName = NSUUID().uuidString
+//            let storageRef = Storage.storage().reference().child("\(imageName).png")
+//            if let uploadImage = UIImagePNGRepresentation(self.itemImage.image!){
+//                storageRef.putData(uploadImage, metadata: nil, completion: { (metadata, error) in
+//                    if error != nil {
+//                        print("Error: \(error!)")
+//                    }
+//                    print("Uploaded Succesfully - Metadata: \(metadata!)")
+//                    let downloadUrl = metadata?.downloadURL()?.absoluteURL
+//                    print(downloadUrl!)
+//                })
+//            
+//            }
+//            
+//        }else{
+//            print("Error with user authentication.")
+//        }
+//    }
     
     
 

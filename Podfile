@@ -12,5 +12,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'EasyPostApi',  '~> 1.0'
 pod 'Kingfisher', '~> 4.0'
+pod 'BraintreeDropIn'
+
 
 end

@@ -10,22 +10,19 @@ import UIKit
 import FirebaseAuth
 
 class LoginView: UIViewController {
-    @IBOutlet weak var emailField: UITextField!
     
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
                 self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
-                
             }else{
                 print("No user signed in")
-                
             }
         }
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +31,7 @@ class LoginView: UIViewController {
         
     }
     
-    
+
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil{
@@ -44,7 +41,6 @@ class LoginView: UIViewController {
                 self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
             }
         })
-        
     }
     
     

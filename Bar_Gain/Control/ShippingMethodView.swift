@@ -25,18 +25,32 @@ class ShippingMethodView: UIViewController {
     }
     
     @IBAction func upsButtonPressed(_ sender: UIButton) {
-        animateCarrierBox()
-    
+        if carrierBox.frame.height == 100{
+            animateCarrierBox()
+        }
     }
     
+    @IBAction func fedexButttonPressed(_ sender: UIButton) {
+        if carrierBox.frame.height == 100{
+            animateCarrierBox()
+        }
+    }
     
+    @IBAction func uspsButtonPressed(_ sender: UIButton) {
+        if carrierBox.frame.height == 100{
+            animateCarrierBox()
+        }
+    }
     
     func animateCarrierBox(){
         let expandedHeight = self.carrierBox.frame.height + 80
+        
         UIView.animate(withDuration: 0.75) {
             let expandedFrame = CGRect(x: self.carrierBox.frame.minX, y: self.carrierBox.frame.minY, width: self.carrierBox.frame.width, height: expandedHeight)
             self.carrierBox.frame = expandedFrame
         }
+        
+        
     }
     /*
     // MARK: - Navigation
