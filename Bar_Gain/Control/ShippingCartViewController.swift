@@ -14,6 +14,13 @@ class ShippingCartViewController: UIViewController {
     @IBOutlet weak var box: UIView!
     @IBOutlet weak var boxTwo: UIView!
     @IBOutlet weak var statusMessage: UILabel!
+    @IBOutlet weak var addAddressButton: GradientButton!
+    @IBOutlet weak var addressOneTextField: UITextField!
+    @IBOutlet weak var addressTwoTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var countryTextField: UITextField!
+    @IBOutlet weak var zipCodeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +53,12 @@ class ShippingCartViewController: UIViewController {
         view.layer.borderWidth = 0.3
         view.layer.borderColor = UIColor.lightGray.cgColor
         
-        
+    }
+    @IBAction func addAddressButtonPressed(_ sender: UIButton) {
+        shipping(name: "John B" , street: addressOneTextField.text!, streetTwo: addressTwoTextField.text!, city: cityTextField.text!, state: stateTextField.text!)
     }
     
-    func shipping(){
+    func shipping(name: String, street: String, streetTwo: String, city: String, state: String){
 //        User.fetchShippingInformation(uid: Global.variables.uid) { (user) in
 //            if user != nil{
 //                shippingInformation.textColor = "Street 1: \(user?.street) \n Street 2: \(user?.streetTwo) \n City: \(user?.city) \n State: \(user?.state)"
@@ -57,6 +66,7 @@ class ShippingCartViewController: UIViewController {
 //                print("No shipping information stored.")
 //            }
 //        }
+        Shipping.postAdress(name: "John B", street: street, streetTwo: streetTwo, city: city, state: state)
     }
 
 

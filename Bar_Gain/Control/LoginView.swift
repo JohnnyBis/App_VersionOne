@@ -39,6 +39,8 @@ class LoginView: UIViewController {
             }else{
                 print("Succesfully signed in")
                 self.performSegue(withIdentifier: "goToHomefromLogin", sender: self)
+                self.emailField.text = ""
+                self.passwordField.text = ""
             }
         })
     }

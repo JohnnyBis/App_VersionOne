@@ -24,7 +24,9 @@ class SettingsViewController: UIViewController {
         
         do {
             try Auth.auth().signOut()
-            performSegue(withIdentifier: "goToSignIn", sender: self)
+            performSegue(withIdentifier: "goToSignInFromSettings", sender: self)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+
         }
         catch {
             print("error: there was a problem signing out")
